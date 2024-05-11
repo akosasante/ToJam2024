@@ -1,11 +1,11 @@
-extends VBoxContainer
+extends HBoxContainer
 
 signal menu_item_increased
 signal menu_item_decreased
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = false
+	self.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

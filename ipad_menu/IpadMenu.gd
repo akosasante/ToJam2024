@@ -1,7 +1,7 @@
 extends Control
 
 @export var numAvailableDishes: int = 9
-@export var numDishesPerRow: int = 3
+@export var numDishesPerRow: int
 
 static var menuItemScene: PackedScene = preload("res://ipad_menu/ipad_menu_item.tscn")
 
@@ -12,7 +12,7 @@ func _ready():
 	print_debug("Got Grid: ", gridContainer)
 
 	# Initialize the shape of the grid
-	intializeNumberGridColumns(gridContainer, numAvailableDishes, numDishesPerRow)
+	intializeNumberGridColumns(gridContainer, numDishesPerRow)
 
 	# populate the menu with my test sushi images
 	for n in range(1, numAvailableDishes + 1):
@@ -28,11 +28,9 @@ func _process(_delta):
 	pass
 
 
-# initialize the grid container with a number of columns based on number of dishes
-# for now, let's say that we want to show max 3 dishes per row, so we'll divide numDishes by 3 to get numColumns
-func intializeNumberGridColumns(gridContainer: GridContainer, numDishes: int, perRow: int):
-	var numColumns: int = numDishes / perRow
-	gridContainer.columns = numColumns
+# initialize the grid container with a number of columns based on how we want to arrange the rows/columns
+func intializeNumberGridColumns(gridContainer: GridContainer, perRow: int):
+	gridContainer.columns = perRow
 
 
 func instantiateDishMenuImage(gridContainer: GridContainer, image: Texture2D, name: String):
