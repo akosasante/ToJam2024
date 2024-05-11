@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bael3hbl3i4c8"]
+
+[ext_resource type="Texture2D" uid="uid://83sf1ttnxxm1" path="res://assets/images/morning.PNG" id="1_4c04g"]
+[ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="2_w2vxx"]
+[ext_resource type="PackedScene" uid="uid://bl0mn3v7y7rtp" path="res://scenes/kwasiPlayerFoodTest.tscn" id="3_tjgwh"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Morning" type="Sprite2D" parent="."]
+position = Vector2(383, 106)
+texture = ExtResource("1_4c04g")
+
+[node name="Player" parent="." instance=ExtResource("2_w2vxx")]
+position = Vector2(390, 505)
+
+[node name="Food" parent="." instance=ExtResource("3_tjgwh")]
+position = Vector2(614, 112)
+full = 2
+indigest = 5
