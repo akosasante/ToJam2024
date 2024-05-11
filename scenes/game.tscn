@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=9 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
+[ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
 [ext_resource type="PackedScene" uid="uid://x6als4wfalge" path="res://scenes/food.tscn" id="4_kttvw"]
 [ext_resource type="Texture2D" uid="uid://d0cs78bub1lfl" path="res://icon.svg" id="5_24ocn"]
@@ -25,8 +26,13 @@ offset_top = -323.0
 offset_right = 575.0
 offset_bottom = -216.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 
 [node name="order_more_button" parent="VBoxContainer" instance=ExtResource("7_g2a0i")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="call_for_bill" parent="VBoxContainer" instance=ExtResource("3_4jf12")]
 layout_mode = 2
 size_flags_horizontal = 8
 

@@ -12,6 +12,10 @@ var foods_on_table := {}
 
 var foods_image_dict = {}
 
+# TODO: This is just an example so that we can test the EndScreen
+# Should end up being an array of Food obbjects or dictionaries with [{ food: FoodObject, amount_eaten: number}] 
+var foods_eaten: Array[Dictionary] = [{"name": "TamagoSushi", "value": 20, "amount_eaten": 5}, {"name": "Miso Soup", "value": 5, "amount_eaten": 1}]
+
 signal remaining_capacity_changed
 signal food_on_table_updated
 
