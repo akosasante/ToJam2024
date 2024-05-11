@@ -7,6 +7,7 @@ var currentFull : int = 0
 
 const maxIndigest : int = 100
 var currentIndigest : int = 0
+@onready var hasIndigestion : bool = false
 
 @export var indigest_reduction_amount : int = 5
 @export var indigest_cooldown_wait_time : int = 10
@@ -35,31 +36,43 @@ func _process(delta):
 			timeVar = 0
 	pass
 	
-func eat_food(food):
+func eat_food(food, isWater):
 	if (food):
-		if (canEat && !isFull):
+		canEat = (isWater && !isFull) || (!isFull && !hasIndigestion)
+		if (canEat):
 			currentFull += food.full
+			if (currentFull >= maxFull):
+				currentFull = maxFull
 			currentIndigest += food.indigest
+			if (currentIndigest >= maxIndigest):
+					currentIndigest = maxIndigest
 			print ("Current Fullness: %s" % currentFull)
 			print ("Current Indigestion: %s" % currentIndigest)
 			
 			if (currentFull >= maxFull):
 				currentFull = maxFull
-				canEat = false;
 				isFull = true;
 				print("Player Is Now FULL!!!!!!!!!!!!!!!!!!!!!!!!")
-			elif (currentIndigest >= maxIndigest):
-				currentIndigest = maxIndigest
-				canEat = false
-				indigest_cooldown_timer.start()
-				print("You got indigestion. Wait until it goes down before eating")
+			else:
+				if (isWater):
+					print("Drinking Water")
+				if (isWater && hasIndigestion):
+					hasIndigestion = false
+					print("Player Can Wat Now")
+					if (indigest_cooldown_timer.time_left > 0):
+						indigest_cooldown_timer.stop()
+				elif (currentIndigest >= maxIndigest):
+					currentIndigest = maxIndigest
+					hasIndigestion = true
+					indigest_cooldown_timer.start()
+					print("You got indigestion. Wait until it goes down before eating")
 		else:
 			print ("Current Fullness: %s" % currentFull)
 			print ("Current Indigestion: %s" % currentIndigest)
 			print("Player can't eat right now")
 	else:
 		print("Food Is Null")
-
+		
 func time_left_until_eat():
 	var time_left = indigest_cooldown_timer.time_left
 	var second = int(time_left) % 60
@@ -73,5 +86,5 @@ func _on_indigestion_cooldown_timer_timeout():
 		indigest_cooldown_timer.start()
 	else:
 		print ("Player indigiestion is low enough to eat again")
-		canEat = true
+		hasIndigestion = false
 		indigest_cooldown_timer.stop()
