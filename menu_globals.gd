@@ -27,7 +27,12 @@ func update_food_on_table(foods_being_ordered: Dictionary):
 	reset_remaining_capacity()
 	
 	food_on_table_updated.emit()
-
+	
+func update_food_on_table_amount(food_name : String):
+	if (foods_on_table.has(food_name)):
+		foods_on_table[food_name] -= 1
+	reset_remaining_capacity()
+	
 func remaining_capacity_change(value: int):
 	remaining_capacity += value
 	remaining_capacity_changed.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=8 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
@@ -6,13 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
 [ext_resource type="PackedScene" uid="uid://x6als4wfalge" path="res://scenes/food.tscn" id="4_kttvw"]
 [ext_resource type="Texture2D" uid="uid://d0cs78bub1lfl" path="res://icon.svg" id="5_24ocn"]
+[ext_resource type="PackedScene" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(383, 106)
 
 [node name="Night" type="Sprite2D" parent="."]
 position = Vector2(3.00003, -215)
 scale = Vector2(0.748611, 0.748611)
 texture = ExtResource("1_g63e3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_top = -323.0
+offset_right = 575.0
+offset_bottom = -216.0
+grow_horizontal = 2
+
+[node name="order_more_button" parent="VBoxContainer" instance=ExtResource("7_g2a0i")]
+layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="Table" type="Node2D" parent="."]
 script = ExtResource("2_1cckm")
@@ -33,14 +49,12 @@ food_name = "Water"
 isWater = true
 
 [node name="FoodContainer" type="GridContainer" parent="Table"]
-offset_top = -323.0
+offset_top = -138.0
 offset_right = 578.0
-offset_bottom = 321.0
+offset_bottom = 170.0
 columns = 2
 
-[node name="Ipad" type="Node2D" parent="."]
-
-[node name="IpadMenu" parent="Ipad" instance=ExtResource("2_nikfs")]
+[node name="IpadMenu" parent="." instance=ExtResource("2_nikfs")]
 scale = Vector2(0.85, 0.85)
 
 [node name="Camera2D" type="Camera2D" parent="."]

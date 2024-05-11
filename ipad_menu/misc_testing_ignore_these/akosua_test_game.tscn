@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://br5o4toc5oox2"]
+[gd_scene load_steps=3 format=3 uid="uid://bj1ap81oie7u8"]
 
 [ext_resource type="Texture2D" uid="uid://83sf1ttnxxm1" path="res://assets/images/morning.PNG" id="1_yjd8u"]
-[ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="2_c0c5r"]
+[ext_resource type="PackedScene" path="res://ipad_menu/scenes/order_more_button.tscn" id="2_c0c5r"]
 
 [node name="Game" type="Node2D"]
 

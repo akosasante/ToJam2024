@@ -26,7 +26,7 @@ func updateFoodContainer():
 			print_debug("path: ", path)
 
 			var image: Texture2D = load(path)
-			instantiateDishMenuImage(food_container, image, "%s - %s" % [sushiKey, n])
+			instantiateDishMenuImage(food_container, image, "%s - %s" % [sushiKey, n], sushiKey)
 			
 	food_ready.emit()
 
@@ -34,9 +34,10 @@ func updateFoodContainer():
 func intializeNumberGridColumns(gridContainer: GridContainer, perRow: int):
 	gridContainer.columns = perRow
 
-func instantiateDishMenuImage(gridContainer: GridContainer, image: Texture2D, name: String):
+func instantiateDishMenuImage(gridContainer: GridContainer, image: Texture2D, name: String, id: String):
 	var loadedMenuItem: Food = foodScene.instantiate().with_data(image)
 	loadedMenuItem.food_name = name
+	loadedMenuItem.food_id = id
 	loadedMenuItem.isWater = false
 	gridContainer.add_child(loadedMenuItem)
 

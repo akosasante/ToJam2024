@@ -9,6 +9,8 @@ class_name Food
 
 @export var food_name : String
 
+var food_id : String
+
 @export var isWater : bool = false
 
 signal food_eaten(food)
@@ -35,4 +37,6 @@ func _on_pressed():
 	print("%s %s" % [s, food_name])
 	food_eaten.emit(self)
 	if (!isWater):
+		MenuGlobals.update_food_on_table_amount(food_id)
+		#MenuGlobals.remaining_capacity_change(1)
 		queue_free()
