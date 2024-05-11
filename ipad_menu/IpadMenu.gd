@@ -5,6 +5,8 @@ extends Control
 
 static var menuItemScene: PackedScene = preload("res://ipad_menu/ipad_menu_item.tscn")
 
+var foods_in_order := {}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,4 +38,17 @@ func intializeNumberGridColumns(gridContainer: GridContainer, perRow: int):
 func instantiateDishMenuImage(gridContainer: GridContainer, image: Texture2D, name: String):
 	var loadedMenuItem: IpadMenuItem = menuItemScene.instantiate().with_data(image)
 	loadedMenuItem.name = name
+	loadedMenuItem.increment_food_item.connect(_on_increment_food_item)
+	loadedMenuItem.decrement_food_item.connect(_on_decrement_food_item)
 	gridContainer.add_child(loadedMenuItem)
+	
+	
+func _on_decrement_food_item():
+	print("DECREMENTING")
+	MenuGlobals.remaining_capacity_change(1)
+	
+	
+	
+func _on_increment_food_item():
+	print("INCREMENTING")
+	MenuGlobals.remaining_capacity_change(-1)

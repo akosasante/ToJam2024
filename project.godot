@@ -15,6 +15,10 @@ run/main_scene="res://scenes/kwasiPlayerTestGame.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MenuGlobals="*res://menu_globals.gd"
+
 [dotnet]
 
 project/assembly_name="S Ushi"
