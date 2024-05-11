@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://cycijo2lq1cl"]
+
+[ext_resource type="Script" path="res://Food/SpicySalmonRoll.gd" id="1_lsowf"]
+[ext_resource type="Script" path="res://Food/SalmonSashimi.gd" id="2_ve0t1"]
+[ext_resource type="Script" path="res://Food/ShrimpTempura.gd" id="3_f4gu8"]
+[ext_resource type="Script" path="res://Food/CaliforniaRoll.gd" id="4_7hgvf"]
+[ext_resource type="Script" path="res://Food/SalmonNigiri.gd" id="5_sv18p"]
+[ext_resource type="Script" path="res://Food/Edmame.gd" id="6_iw5rr"]
+[ext_resource type="Script" path="res://Food/Water.gd" id="7_hgtbx"]
+[ext_resource type="Script" path="res://Food/MisoSoup.gd" id="7_sgotp"]
+[ext_resource type="Script" path="res://Food/Pufferfish.gd" id="9_iddpu"]
+[ext_resource type="Script" path="res://Food/TamagoSushi.gd" id="10_aeewr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sukro"]
+size = Vector2(200, 200)
+
+[node name="Sushi" type="Node2D"]
+
+[node name="SpicySalmonRoll" type="Sprite2D" parent="."]
+position = Vector2(-19537, 0.00012207)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("1_lsowf")
+
+[node name="Label" type="Label" parent="SpicySalmonRoll"]
+offset_left = -65.9667
+offset_top = -5.43333
+offset_right = 69.0333
+offset_bottom = 17.5667
+text = "Spicy Salmon Roll"
+
+[node name="SalmonSashimi" type="Sprite2D" parent="."]
+position = Vector2(-25917, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("2_ve0t1")
+
+[node name="Label" type="Label" parent="SalmonSashimi"]
+offset_left = -62.5999
+offset_top = -5.43333
+offset_right = 72.4001
+offset_bottom = 17.5667
+text = "Salmon Sashimi"
+
+[node name="ShrimpTempura" type="Sprite2D" parent="."]
+position = Vector2(19513, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("3_f4gu8")
+
+[node name="Label" type="Label" parent="ShrimpTempura"]
+offset_left = -59.1
+offset_top = -5.63332
+offset_right = 75.9
+offset_bottom = 17.3667
+text = "Shrimp Tempura"
+
+[node name="CaliforniaRoll" type="Sprite2D" parent="."]
+position = Vector2(32691, -1.52588e-05)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("4_7hgvf")
+
+[node name="Label" type="Label" parent="CaliforniaRoll"]
+offset_left = -56.0333
+offset_top = -5.63333
+offset_right = 55.9667
+offset_bottom = 17.3667
+text = "Califronia Roll"
+
+[node name="SalmonNigiri" type="Sprite2D" parent="."]
+position = Vector2(6551, 0.000488281)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("5_sv18p")
+
+[node name="Label" type="Label" parent="SalmonNigiri"]
+offset_left = -52.9667
+offset_top = -5.63335
+offset_right = 59.0333
+offset_bottom = 17.3666
+text = "Salmon Nigiri"
+
+[node name="Edmame" type="Sprite2D" parent="."]
+position = Vector2(0, 0.00195313)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("6_iw5rr")
+
+[node name="Label" type="Label" parent="Edmame"]
+offset_left = -40.5999
+offset_top = -5.63333
+offset_right = 37.4001
+offset_bottom = 17.3667
+text = "Edamame"
+
+[node name="MisoSoup" type="Sprite2D" parent="."]
+position = Vector2(-6476, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("7_sgotp")
+
+[node name="Label" type="Label" parent="MisoSoup"]
+offset_left = -40.5999
+offset_top = -5.63333
+offset_right = 37.4001
+offset_bottom = 17.3667
+text = "Miso Soup"
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(26099, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("7_hgtbx")
+
+[node name="Label" type="Label" parent="Water"]
+offset_left = -26.1999
+offset_top = -5.63333
+offset_right = 20.8001
+offset_bottom = 17.3667
+text = "Water"
+
+[node name="Pufferfish" type="Sprite2D" parent="."]
+position = Vector2(13022, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("9_iddpu")
+
+[node name="Label" type="Label" parent="Pufferfish"]
+offset_left = -35.6
+offset_top = -5.63333
+offset_right = 40.4
+offset_bottom = 17.3667
+text = "Pufferfish"
+
+[node name="TamagoSushi" type="Sprite2D" parent="."]
+position = Vector2(-12852, 0)
+scale = Vector2(30, 30)
+texture = SubResource("PlaceholderTexture2D_sukro")
+script = ExtResource("10_aeewr")
+
+[node name="Label" type="Label" parent="TamagoSushi"]
+offset_left = -51.7333
+offset_top = -5.63333
+offset_right = 56.2667
+offset_bottom = 17.3667
+text = "Tamago Sushi"
