@@ -18,6 +18,10 @@ func _process(delta):
 	pass
 
 func updateFoodContainer():
+	# first remove any existing food items from the grid
+	for node in food_container.get_children():
+		food_container.remove_child(node)
+		node.queue_free()
 	intializeNumberGridColumns(food_container, numDishesPerRow)
 
 	for sushiKey in MenuGlobals.foods_on_table:

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
 [ext_resource type="PackedScene" uid="uid://x6als4wfalge" path="res://scenes/food.tscn" id="4_kttvw"]
 [ext_resource type="Texture2D" uid="uid://d0cs78bub1lfl" path="res://icon.svg" id="5_24ocn"]
-[ext_resource type="PackedScene" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
+[ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(383, 106)
