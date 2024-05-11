@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wmjge")
-numDishesPerRow = 4
+numDishesPerRow = 3
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -30,7 +30,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xf7vo")
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/v_separation = 25
 columns = 2
+
+[node name="ModalButtons" type="MarginContainer" parent="Panel"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="Confirm Button" type="Button" parent="Panel/ModalButtons"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "CONFIRM"
+
+[node name="Cancel Button" type="Button" parent="Panel/ModalButtons"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "CANCEL
+"
+
+[connection signal="pressed" from="Panel/ModalButtons/Confirm Button" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Panel/ModalButtons/Cancel Button" to="." method="_on_cancel_button_pressed"]
