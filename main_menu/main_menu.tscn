@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://crd88oxteduu6"]
+
+[ext_resource type="Texture2D" uid="uid://bex2dtj3qak74" path="res://assets/images/sushi_front.jpg" id="1_cjrhd"]
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
+[ext_resource type="AudioStream" uid="uid://yegn1xqunq2h" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_udjb4")
+
+[node name="SushiFront" type="Sprite2D" parent="."]
+position = Vector2(576, 359)
+scale = Vector2(0.826992, 0.75)
+texture = ExtResource("1_cjrhd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 450.0
+offset_right = 715.0
+offset_bottom = 574.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ENTER"
+
+[node name="SoundButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+button_pressed = true
+text = "Sound"
+alignment = 1
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+stream = ExtResource("3_0ntsi")
+volume_db = 5.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/SoundButton" to="." method="_on_sound_button_toggled"]

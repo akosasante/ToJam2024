@@ -11,14 +11,6 @@ script = ExtResource("1_pe7xu")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="TimerDisplay" type="Label" parent="."]
-offset_left = 362.0
-offset_top = 191.0
-offset_right = 560.0
-offset_bottom = 464.0
-theme_override_font_sizes/font_size = 100
-text = "2:00"
-
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 109.0
 offset_top = 506.0
@@ -64,11 +56,20 @@ offset_right = 122.0
 offset_bottom = 67.0
 text = "Reset"
 
-[node name="TimeBar" type="TextureProgressBar" parent="."]
-offset_left = 223.0
-offset_top = 29.0
-offset_right = 687.0
-offset_bottom = 493.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 925.0
+offset_top = 28.0
+offset_right = 1389.0
+offset_bottom = 492.0
+scale = Vector2(0.439042, 0.439042)
+
+[node name="TimerDisplay" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "2:00"
+
+[node name="TimeBar" type="TextureProgressBar" parent="CenterContainer"]
+layout_mode = 2
 max_value = 120.0
 fill_mode = 5
 texture_under = ExtResource("2_sq3y8")
@@ -80,4 +81,4 @@ tint_progress = Color(0, 1, 0, 1)
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Reset Button" to="." method="_on_reset_button_pressed"]
-[connection signal="value_changed" from="TimeBar" to="." method="_on_time_bar_value_changed"]
+[connection signal="value_changed" from="CenterContainer/TimeBar" to="." method="_on_time_bar_value_changed"]

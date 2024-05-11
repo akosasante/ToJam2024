@@ -2,6 +2,9 @@ extends Node2D
 
 var initialTime = 120
 var currentTime = initialTime
+ 
+@onready var timerDisplay: Label = $CenterContainer/TimerDisplay
+@onready var timeBar: TextureProgressBar = $CenterContainer/TimeBar
 
 func _ready():
 	updateTimerDisplay()
@@ -12,13 +15,13 @@ func _on_timer_timeout():
 		currentTime -= 1
 		updateTimerDisplay()
 	else:
-		$TimerDisplay.text = "Game Over"
+		timerDisplay.text = "Game Over"
 	
 func updateTimerDisplay():
 	var minutes = currentTime / 60
 	var seconds = currentTime % 60
-	$TimerDisplay.text = "%01d:%02d" % [minutes, seconds]
-	$TimeBar.value = currentTime
+	timerDisplay.text = "%01d:%02d" % [minutes, seconds]
+	timeBar.value = currentTime
 	
 func _on_play_button_pressed():
 	$Timer.start()
@@ -33,6 +36,6 @@ func _on_reset_button_pressed():
 
 func _on_time_bar_value_changed(value):
 	if value < 30:
-		$TimeBar.tint_progress = Color(1, 0, 0)
+		timeBar.tint_progress = Color(1, 0, 0) #red
 	else:
-		$TimeBar.tint_progress = Color(0, 1, 0)
+		timeBar.tint_progress = Color(0, 1, 0) #green
