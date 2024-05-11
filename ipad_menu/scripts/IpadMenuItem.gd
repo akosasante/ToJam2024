@@ -29,22 +29,26 @@ func with_data(given_image: Texture2D, name: String) -> IpadMenuItem:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MenuGlobals.remaining_capacity_changed.connect(_on_remaining_capacity_changed)
+	update_button_states()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 	
+	
+func update_button_states():
+	if MenuGlobals.remaining_capacity == 0:
+		up_arrow.disabled = true
+	elif up_arrow.disabled:
+		up_arrow.disabled = false
 
 #### SIGNALS ####
 
 # If remaining capacity changes (due to other menu items or changes on table)
 # We should update the buttons here to disable if needed
 func _on_remaining_capacity_changed():
-	if MenuGlobals.remaining_capacity == 0:
-		up_arrow.disabled = true
-	elif up_arrow.disabled:
-		up_arrow.disabled = false
+	update_button_states()
 
 func _on_menu_item_button_up_pressed():
 	print_debug("up button pressed")
