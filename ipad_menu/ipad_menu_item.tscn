@@ -79,7 +79,7 @@ offset_left = -5.0
 offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1"
+text = "0"
 label_settings = SubResource("LabelSettings_hslq3")
 
 [node name="menu_item_button_down" type="TextureButton" parent="VBoxContainer/menu_item_buttons"]
@@ -103,3 +103,6 @@ texture_disabled = ExtResource("5_afrw8")
 ignore_texture_size = true
 stretch_mode = 5
 flip_v = true
+
+[connection signal="pressed" from="VBoxContainer/menu_item_buttons/menu_item_button_up" to="." method="_on_menu_item_button_up_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu_item_buttons/menu_item_button_down" to="." method="_on_menu_item_button_down_pressed"]

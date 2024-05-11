@@ -1,7 +1,13 @@
 extends Control
 class_name IpadMenuItem
 
-var menu_item_image
+var menu_item_image: TextureRect
+var label: Label
+var remaining_capacity: int = 9
+
+
+signal increment_food_item
+signal decrement_food_item
 
 # We willl be instantiating this scene/object from the IpadMenu one
 # so we want to be able to let that parent object pass in some info about
@@ -17,6 +23,7 @@ func with_data(given_image: Texture2D) -> IpadMenuItem:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	label = $VBoxContainer/menu_item_buttons/Label
 	if menu_item_image == null:
 		menu_item_image = $VBoxContainer/Control/menu_item_image
 
@@ -28,15 +35,20 @@ func _process(_delta):
 
 #### SIGNALS ####
 
-# When mouse enters this menu item,
-# Darken the image and show a border
-# Display up/down arrows
-func _on_mouse_entered():
-	print("MOUSE ENTERED %s" % name)
 
 
-# When mouse exits this menu item
-# undarken the image and hide border
-# hide the up/down arrows
-func _on_mouse_exited():
-	print("MOUSE EXITED %s" % name)
+func _on_menu_item_button_up_pressed():
+	print_debug("up button pressed")
+	if remaining_capacity > 0:
+		var new_amount: int = int(label.text) + 1
+		label.text = str(new_amount)
+		# Eventually we'd want to update this to also include the food name
+		increment_food_item.emit()
+		
+
+func _on_menu_item_button_down_pressed():
+	print_debug("down button pressed")
+	var curr_amount: int = int(label.text)
+	if curr_amount > 0:
+		label.text = str(curr_amount - 1)
+		decrement_food_item.emit()
