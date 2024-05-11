@@ -1,0 +1,266 @@
+[gd_scene load_steps=11 format=3 uid="uid://cy0w1pvn2qlx2"]
+
+[ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenu.gd" id="1_0gidw"]
+[ext_resource type="Script" path="res://addons/MaxSizeContainer/max_size_container.gd" id="2_ys2ph"]
+[ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenuItem.gd" id="3_mkka4"]
+[ext_resource type="Texture2D" uid="uid://ccpv8k6jdnfb8" path="res://akosua_test_images/sushi1.png" id="4_6iao5"]
+[ext_resource type="Script" path="res://ipad_menu/scripts/MenuItemButtons.gd" id="5_fmbmr"]
+[ext_resource type="Texture2D" uid="uid://d3w8hu6r2eps5" path="res://akosua_test_images/arrow.png" id="6_2to33"]
+[ext_resource type="Texture2D" uid="uid://dphfdg1ub7x62" path="res://akosua_test_images/arrow pressed.png" id="7_80ktd"]
+[ext_resource type="Texture2D" uid="uid://dejb6v67rr2r" path="res://akosua_test_images/arrow hover.png" id="8_7w5qs"]
+[ext_resource type="Texture2D" uid="uid://dhe4k65d0rgpi" path="res://akosua_test_images/arrow disabled.png" id="9_i5s0y"]
+
+[sub_resource type="SystemFont" id="SystemFont_byp4v"]
+font_weight = 600
+
+[node name="IpadMenu" type="Container"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0gidw")
+
+[node name="MaxSizeContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("2_ys2ph")
+mode = 1
+limit = Vector2(1150, 650)
+
+[node name="Panel" type="PanelContainer" parent="MaxSizeContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MaxSizeContainer/Panel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="ipad_menu_item" type="MarginContainer" parent="MaxSizeContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_mkka4")
+
+[node name="container" type="VBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item"]
+layout_mode = 2
+
+[node name="menu_item_image" type="TextureRect" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_6iao5")
+
+[node name="CenterContainer" type="CenterContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container"]
+layout_mode = 2
+
+[node name="menu_item_buttons" type="HBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("5_fmbmr")
+
+[node name="menu_item_button_up" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/normal_font = SubResource("SystemFont_byp4v")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[b][center]1[/center][/b]"
+fit_content = true
+
+[node name="menu_item_button_down" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+flip_v = true
+
+[node name="ipad_menu_item2" type="MarginContainer" parent="MaxSizeContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_mkka4")
+
+[node name="container" type="VBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2"]
+layout_mode = 2
+
+[node name="menu_item_image" type="TextureRect" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_6iao5")
+
+[node name="CenterContainer" type="CenterContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container"]
+layout_mode = 2
+
+[node name="menu_item_buttons" type="HBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("5_fmbmr")
+
+[node name="menu_item_button_up" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/normal_font = SubResource("SystemFont_byp4v")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[b][center]1[/center][/b]"
+fit_content = true
+
+[node name="menu_item_button_down" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+flip_v = true
+
+[node name="ipad_menu_item3" type="MarginContainer" parent="MaxSizeContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_mkka4")
+
+[node name="container" type="VBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3"]
+layout_mode = 2
+
+[node name="menu_item_image" type="TextureRect" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_6iao5")
+
+[node name="CenterContainer" type="CenterContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container"]
+layout_mode = 2
+
+[node name="menu_item_buttons" type="HBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("5_fmbmr")
+
+[node name="menu_item_button_up" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/normal_font = SubResource("SystemFont_byp4v")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[b][center]1[/center][/b]"
+fit_content = true
+
+[node name="menu_item_button_down" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+flip_v = true
+
+[node name="ipad_menu_item4" type="MarginContainer" parent="MaxSizeContainer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_mkka4")
+
+[node name="container" type="VBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4"]
+layout_mode = 2
+
+[node name="menu_item_image" type="TextureRect" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_6iao5")
+
+[node name="CenterContainer" type="CenterContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container"]
+layout_mode = 2
+
+[node name="menu_item_buttons" type="HBoxContainer" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("5_fmbmr")
+
+[node name="menu_item_button_up" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/normal_font = SubResource("SystemFont_byp4v")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[b][center]1[/center][/b]"
+fit_content = true
+
+[node name="menu_item_button_down" type="TextureButton" parent="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_2to33")
+texture_pressed = ExtResource("7_80ktd")
+texture_hover = ExtResource("8_7w5qs")
+texture_disabled = ExtResource("9_i5s0y")
+flip_v = true
+
+[connection signal="mouse_entered" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item" method="_on_mouse_exited"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons/menu_item_button_up" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_up_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons/menu_item_button_down" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_down_pressed"]
+[connection signal="mouse_entered" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2" method="_on_mouse_exited"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons/menu_item_button_up" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_up_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons/menu_item_button_down" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item2/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_down_pressed"]
+[connection signal="mouse_entered" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3" method="_on_mouse_exited"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons/menu_item_button_up" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_up_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons/menu_item_button_down" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item3/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_down_pressed"]
+[connection signal="mouse_entered" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4" method="_on_mouse_exited"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons/menu_item_button_up" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_up_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons/menu_item_button_down" to="MaxSizeContainer/Panel/GridContainer/ipad_menu_item4/container/CenterContainer/menu_item_buttons" method="_on_menu_item_button_down_pressed"]
