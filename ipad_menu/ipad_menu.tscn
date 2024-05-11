@@ -28,5 +28,3 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-metadata/_edit_lock_ = true
