@@ -76,4 +76,5 @@ func _on_confirm_button_pressed():
 
 func _on_cancel_button_pressed():
 	MenuGlobals.reset_remaining_capacity()
+	MenuGlobals.food_on_table_updated.emit()
 	self.queue_free()

@@ -8,12 +8,11 @@ static var MAX_CAPACITY : int = 9
 
 var remaining_capacity: int = MAX_CAPACITY
 
-signal remaining_capacity_changed
-
 var foods_on_table := {}
 
 var foods_image_dict = {}
 
+signal remaining_capacity_changed
 signal food_on_table_updated
 
 func update_food_on_table(foods_being_ordered: Dictionary):
