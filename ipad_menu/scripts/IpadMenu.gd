@@ -22,6 +22,8 @@ func _ready():
 		var path: String = "res://akosua_test_images/sushi%s.png" % n
 		print_debug("path: ", path)
 
+		MenuGlobals.foods_image_dict["SUSHI #%s" % n] = path
+
 		var image: Texture2D = load(path)
 		instantiateDishMenuImage(gridContainer, image, "SUSHI #%s" % n)
 

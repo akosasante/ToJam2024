@@ -14,6 +14,9 @@ var currentIndigest : int = 0
 @onready var indigest_cooldown_timer = $IndigestionCooldownTimer
 
 @onready var canEat : bool = true
+
+var water : Food
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	indigest_cooldown_timer.wait_time = indigest_cooldown_wait_time
@@ -23,8 +26,16 @@ func _ready():
 	
 	print ("Max Indigestion: %s" % maxIndigest)
 	print ("Current Indigestion: %s" % currentIndigest)
-	pass # Replace with function body.
-
+	
+	var res = []
+	MenuGlobals.findAllFoods(get_tree().current_scene, res)
+	for food in res:
+		if food.isWater:
+			water = food
+			break
+			
+	if (water):
+		water.food_eaten.connect(_on_kwasi_test_water_food_eaten)
 
 var timeVar = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,15 +46,31 @@ func _process(delta):
 			print ("Time Left Until Indigestion Goes Down: %s" % time_left_until_eat())
 			timeVar = 0
 	pass
+
+
+func _on_table_food_ready():
+	var res = []
+	MenuGlobals.findAllFoods(get_tree().current_scene, res)
+	for food in res:
+		if !food.isWater:
+			food.food_eaten.connect(_on_kwasi_test_food_food_eaten)
+
+func _on_kwasi_test_food_food_eaten(food):
+	eat_drink_food(food, false)
+
+
+func _on_kwasi_test_water_food_eaten(food):
+	eat_drink_food(food, true)
+
 	
-func eat_food(food, isWater):
+func eat_drink_food(food, isWater):
 	if (food):
 		canEat = (isWater && !isFull) || (!isFull && !hasIndigestion)
 		if (canEat):
-			currentFull += food.full
+			currentFull += food.fullness
 			if (currentFull >= maxFull):
 				currentFull = maxFull
-			currentIndigest += food.indigest
+			currentIndigest += food.indigestion
 			if (currentIndigest >= maxIndigest):
 					currentIndigest = maxIndigest
 			print ("Current Fullness: %s" % currentFull)

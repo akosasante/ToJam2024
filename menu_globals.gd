@@ -7,9 +7,14 @@ extends Node
 static var MAX_CAPACITY : int = 9
 
 var remaining_capacity: int = MAX_CAPACITY
-var foods_on_table := {}
 
 signal remaining_capacity_changed
+
+var foods_on_table := {}
+
+var foods_image_dict = {}
+
+signal food_on_table_updated
 
 func update_food_on_table(foods_being_ordered: Dictionary):
 	for ordered_dish in foods_being_ordered:
@@ -20,6 +25,8 @@ func update_food_on_table(foods_being_ordered: Dictionary):
 	
 	# After we've added all the foods from the menu to the table
 	reset_remaining_capacity()
+	
+	food_on_table_updated.emit()
 
 func remaining_capacity_change(value: int):
 	remaining_capacity += value
@@ -35,3 +42,9 @@ func reset_remaining_capacity():
 	
 	if remaining_capacity > MAX_CAPACITY:
 		push_warning("Unexpected: somehow remaining capacity (%d) is greater than max capacity (%d). Program will continue but weird things may happen" % [remaining_capacity, MAX_CAPACITY])
+
+func findAllFoods(node: Node, result : Array) -> void:
+	if node is Food:
+		result.push_back(node)
+	for child in node.get_children():
+		findAllFoods(child, result)
