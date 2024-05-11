@@ -1,8 +1,5 @@
 extends Node2D
 
-var game_scene := preload("res://scenes/game.tscn")
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var score_text := """You ate {num_dishes} dishes!
@@ -43,6 +40,9 @@ func generate_score(total_value: int) -> Array[String]:
 		return ["S", "Wow! You really must have been starving!"]
 
 func _on_play_again_pressed():
+	# Warn: gotta keep this as load, rather than preload which would be a bit more perfomrant because it seems to be messing with Godot's caching
+	# https://github.com/godotengine/godot/issues/80981
+	var game_scene := load("res://scenes/game.tscn")
 	SceneTransition.change_scene_with_dissolve(game_scene)
 
 

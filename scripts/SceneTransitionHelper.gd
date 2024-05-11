@@ -4,6 +4,7 @@ var scene_to_change_to: PackedScene
 var playing_forwards: bool
 
 func change_scene_with_dissolve(target: PackedScene) -> void:
+	self.show()
 	scene_to_change_to = target
 	$dissolve_rect.visible = true
 	playing_forwards = true
