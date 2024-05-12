@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_fcv4a"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
-[ext_resource type="AudioStream" uid="uid://yegn1xqunq2h" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
-[ext_resource type="Texture2D" uid="uid://c4187k4dud31c" path="res://assets/images/danyan_art/Title_Screen_Final.png" id="3_fkh0u"]
+[ext_resource type="AudioStream" uid="uid://dya0rykuif3q5" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
+[ext_resource type="Texture2D" uid="uid://debitnvkrlkmu" path="res://assets/images/danyan_art/Title_Screen_Final.png" id="3_fkh0u"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_py33q"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lo34n"]
@@ -182,8 +182,8 @@ text = "X"
 
 [connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Instructions/Panel/CloseInstructions" to="." method="_on_close_instructions_pressed"]
 [connection signal="pressed" from="Credits/Panel/CloseCredits" to="." method="_on_close_credits_pressed"]
