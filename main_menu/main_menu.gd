@@ -1,5 +1,4 @@
 extends Control
-
 var audioMuted = false
 
 func _ready():
@@ -11,7 +10,8 @@ func _on_sound_button_pressed():
 	AudioServer.set_bus_mute(bus_idx, audioMuted)
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	var game_scene := load("res://scenes/game.tscn")
+	SceneTransition.change_scene_with_dissolve(game_scene)
 
 func _on_exit_button_pressed():
 	get_tree().quit()

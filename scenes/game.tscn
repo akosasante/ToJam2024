@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=12 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
-[ext_resource type="PackedScene" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
+[ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
-[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
-[ext_resource type="Texture2D" uid="uid://n4jcmyqj25pk" path="res://assets/images/water-glass-cup.jpg" id="6_dry6i"]
+[ext_resource type="PackedScene" path="res://Food/Water.tscn" id="5_necd4"]
+[ext_resource type="Texture2D" uid="uid://g2d0sfee5v3x" path="res://assets/images/water-glass-cup.jpg" id="6_dry6i"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
+[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
 
 [sub_resource type="Resource" id="Resource_tff6q"]
 resource_local_to_scene = true
@@ -71,5 +72,10 @@ columns = 2
 scale = Vector2(0.85, 0.85)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TableMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_oslyv")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="food_ready" from="Table" to="Table/Player" method="_on_table_food_ready"]
