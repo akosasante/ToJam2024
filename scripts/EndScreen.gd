@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var meal_charge: int = 25
+
 var medalImages: Dictionary = {
 								  "F": preload("res://assets/images/Ftier.png"),
 								  "E": preload("res://assets/images/Etier.png"),
@@ -15,7 +17,7 @@ var medalImages: Dictionary = {
 func _ready():
 	var score_dict: Dictionary = format_score_text()
 	
-	var score_text := """You ate {num_dishes} dishes! Today's dinner charge was $25
+	var score_text := """You ate {num_dishes} dishes! Today's dinner charge was ${meal_charge}
 	
 	Value of finished dishes: ${reward_value}
 	
@@ -65,7 +67,8 @@ func format_score_text() -> Dictionary:
 		"penalty_value": food_uneaten_value,
 		"total_value": total_value,
 		"score": score_and_comment[0],
-		"extra_comment": score_and_comment[1]
+		"extra_comment": score_and_comment[1],
+		"meal_charge": meal_charge
 	}
 
 
