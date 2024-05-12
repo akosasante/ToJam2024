@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://crd88oxteduu6"]
 
-[ext_resource type="Texture2D" uid="uid://bex2dtj3qak74" path="res://assets/images/sushi_front.jpg" id="1_cjrhd"]
+[ext_resource type="Texture2D" uid="uid://badaoujpq1v1k" path="res://assets/images/sushi_front.jpg" id="1_cjrhd"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
-[ext_resource type="AudioStream" uid="uid://yegn1xqunq2h" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
+[ext_resource type="AudioStream" uid="uid://dya0rykuif3q5" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_py33q"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lo34n"]
