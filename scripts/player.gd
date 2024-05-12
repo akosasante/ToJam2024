@@ -82,13 +82,13 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 				SceneTransition.change_scene_with_dissolve(deathScene)
 			
 			#handle fullness -- with potential -20% to 20% buff on food fullness base stat 
-			var effectiveFullness : int = int(rng.randf_range(0.80, 1.20) * food.fullness)
+			var effectiveFullness : int = int(rng.randf_range(0.80, 1.20) * food.fullness) if !isWater else food.fullness
 			currentFull += effectiveFullness
 			if (currentFull >= maxFull):
 				currentFull = maxFull
 			
 			# handle indigestion -- with potential -20% to 20% buff on food indigestion base stat 
-			var effectiveIndigestion : int = int(rng.randf_range(0.80, 1.20) * food.indigestion)
+			var effectiveIndigestion : int = int(rng.randf_range(0.80, 1.20) * food.indigestion) if !isWater else food.indigestion
 			currentIndigest += effectiveIndigestion       
 			if (currentIndigest >= maxIndigest):
 				currentIndigest = maxIndigest
