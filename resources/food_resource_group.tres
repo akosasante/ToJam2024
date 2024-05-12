@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://73mfbjkayyar"]
+
+[ext_resource type="Script" path="res://addons/godot_resource_groups/resource_group.gd" id="1_84s62"]
+
+[resource]
+script = ExtResource("1_84s62")
+base_folder = "res://resources/food_to_import"
+includes = Array[String]([])
+excludes = Array[String]([])
+paths = Array[String](["res://resources/food_to_import/CaliforniaRoll.tres", "res://resources/food_to_import/Edmame.tres", "res://resources/food_to_import/MisoSoup.tres", "res://resources/food_to_import/PufferFish.tres", "res://resources/food_to_import/SalmonNigiri.tres", "res://resources/food_to_import/SalmonSashimi.tres", "res://resources/food_to_import/ShrimpTempura.tres", "res://resources/food_to_import/SpicyTunaRoll.tres", "res://resources/food_to_import/TunaRoll.tres", "res://resources/food_to_import/Water.tres"])

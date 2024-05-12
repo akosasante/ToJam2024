@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://c4cpnir4ufj2s"]
 
-[ext_resource type="Texture2D" uid="uid://n4jcmyqj25pk" path="res://assets/images/water-glass-cup.jpg" id="1_6tq1h"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_24a47"]
+[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="1_wy5j5"]
 
 [resource]
 resource_local_to_scene = true
@@ -12,4 +12,4 @@ food_value = 0
 food_name = "Water"
 food_id = "Water"
 isWater = true
-image = ExtResource("1_6tq1h")
+image = ExtResource("1_wy5j5")

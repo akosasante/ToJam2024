@@ -33,6 +33,11 @@ func load_data(food: Food) -> FoodButton:
 func _ready():
 	load_stats(foodStats)
 	
+	if image:
+		ignore_texture_size = true
+		stretch_mode = STRETCH_SCALE
+		custom_minimum_size = Vector2(100, 100)
+	
 func load_stats(food: Food):
 	if (food != null):
 		fullness = food.fullness

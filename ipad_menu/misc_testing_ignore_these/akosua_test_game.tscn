@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj1ap81oie7u8"]
+[gd_scene load_steps=9 format=3 uid="uid://bj1ap81oie7u8"]
 
 [ext_resource type="Texture2D" uid="uid://83sf1ttnxxm1" path="res://assets/images/morning.PNG" id="1_yjd8u"]
-[ext_resource type="PackedScene" path="res://ipad_menu/scenes/order_more_button.tscn" id="2_c0c5r"]
+[ext_resource type="PackedScene" uid="uid://x6als4wfalge" path="res://scenes/food.tscn" id="2_xmj0c"]
+[ext_resource type="Texture2D" uid="uid://bt7i7wrsud1hk" path="res://assets/images/danyan_art/fugu.png" id="3_7uwey"]
+[ext_resource type="Texture2D" uid="uid://2abbcvmdjjf6" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="4_xsgeo"]
+[ext_resource type="Texture2D" uid="uid://6n56ryjr3soa" path="res://assets/images/danyan_art/shrimp_tempura.png" id="5_dyl46"]
+[ext_resource type="Texture2D" uid="uid://day5a50vucsnw" path="res://assets/images/danyan_art/Spicy_tuna.png" id="6_7s8gh"]
+[ext_resource type="Texture2D" uid="uid://bccae64jqlrr2" path="res://assets/images/danyan_art/tuna_roll.png" id="7_4r8qu"]
+[ext_resource type="Texture2D" uid="uid://ceywram4bb7eu" path="res://assets/images/danyan_art/veggie_roll.png" id="8_bsi2v"]
 
 [node name="Game" type="Node2D"]
 
@@ -9,10 +15,72 @@
 position = Vector2(383, 106)
 texture = ExtResource("1_yjd8u")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 1150.0
-offset_bottom = 107.0
+[node name="FoodContainer" type="GridContainer" parent="Morning"]
+offset_left = -131.0
+offset_top = -99.0
+offset_right = 572.0
+offset_bottom = 285.0
+columns = 3
 
-[node name="order_more_button" parent="VBoxContainer" instance=ExtResource("2_c0c5r")]
+[node name="Food" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-size_flags_horizontal = 8
+texture_normal = ExtResource("3_7uwey")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food2" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("4_xsgeo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food3" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("5_dyl46")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food4" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("6_7s8gh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food5" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("7_4r8qu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food6" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("8_bsi2v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food7" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("7_4r8qu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food8" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("6_7s8gh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Food9" parent="Morning/FoodContainer" instance=ExtResource("2_xmj0c")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("5_dyl46")
+ignore_texture_size = true
+stretch_mode = 0

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://q1b6han3jqxd"]
 
-[ext_resource type="Texture2D" uid="uid://dkepjby4fo0vg" path="res://akosua_test_images/sushi4.png" id="1_art5e"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_f8amc"]
+[ext_resource type="Texture2D" uid="uid://bccae64jqlrr2" path="res://assets/images/danyan_art/tuna_roll.png" id="1_htoig"]
 
 [resource]
 resource_local_to_scene = true
@@ -9,7 +9,7 @@ script = ExtResource("1_f8amc")
 fullness = 6
 indigestion = 1
 food_value = 7
-food_name = "Tamago Sushi"
-food_id = "TamagoSushi"
+food_name = "Tuna Roll"
+food_id = "TunaRoll"
 isWater = false
-image = ExtResource("1_art5e")
+image = ExtResource("1_htoig")
