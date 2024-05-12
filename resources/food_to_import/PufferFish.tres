@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://bnge6qltxgpis"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_6stio"]
-[ext_resource type="AudioStream" uid="uid://idufqf5mv12o" path="res://assets/sounds/AYCE_Game_Jam_Crunchy_Chew.mp3" id="1_jp0g1"]
-[ext_resource type="Texture2D" uid="uid://by5vm4vcon0ia" path="res://assets/images/danyan_art/fugu.png" id="1_mgut4"]
+[ext_resource type="AudioStream" uid="uid://cpp1acc8mnhc6" path="res://assets/sounds/AYCE_Game_Jam_Crunchy_Chew.mp3" id="1_jp0g1"]
+[ext_resource type="Texture2D" uid="uid://bt7i7wrsud1hk" path="res://assets/images/danyan_art/fugu.png" id="1_mgut4"]
 
 [resource]
 resource_local_to_scene = true
@@ -10,7 +10,7 @@ script = ExtResource("1_6stio")
 fullness = 5
 indigestion = 5
 food_value = 30
-food_name = "Pufferfish"
+food_name = "Fugu"
 food_id = "Pufferfish"
 isWater = false
 image = ExtResource("1_mgut4")
