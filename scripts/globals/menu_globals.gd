@@ -77,5 +77,6 @@ func load_food_resources():
 	
 func reset_all():
 	foods_on_table = {}
+	foods_eaten = []
 	load_food_resources()
 	reset_remaining_capacity()
