@@ -73,10 +73,12 @@ func eat_drink_food(food, isWater):
 	if (food):
 		canEat = (isWater && !isFull) || (!isFull && !hasIndigestion)
 		if (canEat):
+			#handle fullness
 			currentFull += food.fullness
 			if (currentFull >= maxFull):
 				currentFull = maxFull
 			
+			# handle indigestion
 			currentIndigest += food.indigestion           
 			if (currentIndigest >= maxIndigest):
 				currentIndigest = maxIndigest
@@ -93,7 +95,7 @@ func eat_drink_food(food, isWater):
 					print("Drinking Water")
 				if (isWater && hasIndigestion):
 					hasIndigestion = false
-					print("Player Can Wat Now")
+					print("Player Can Eat Now")
 					if (indigest_cooldown_timer.time_left > 0):
 						indigest_cooldown_timer.stop()
 				elif (currentIndigest >= maxIndigest):
@@ -102,7 +104,12 @@ func eat_drink_food(food, isWater):
 					indigest_cooldown_timer.start()
 					print("You got indigestion. Wait until it goes down before eating")
 		
+			# side effects
 			player_consumed_something.emit(food)
+			if (!isWater):
+				# We were able to eat it, so update the amount on table and delete teh food
+				MenuGlobals.remove_food_from_table(food.food_id)
+				food.queue_free()
 		else:
 			print ("Current Fullness: %s" % currentFull)
 			print ("Current Indigestion: %s" % currentIndigest)
