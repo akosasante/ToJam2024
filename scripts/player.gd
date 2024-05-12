@@ -23,6 +23,9 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 static var deathScene: PackedScene = preload("res://scenes/unalive_screen.tscn")
 
 signal player_consumed_something
+signal player_is_full
+signal player_is_indigested
+signal player_no_longer_indigested
 
 
 # Called when the node enters the scene tree for the first time.
@@ -99,6 +102,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 			print ("Current Indigestion: %s" % currentIndigest)
 
 			if (currentFull >= maxFull):
+				player_is_full.emit()
 				currentFull = maxFull
 				isFull = true;
 				print("Player Is Now FULL!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -107,17 +111,19 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 					print("Drinking Water")
 				if (isWater && hasIndigestion):
 					hasIndigestion = false
+					player_no_longer_indigested.emit()
 					print("Player Can Eat Now")
 					if (indigest_cooldown_timer.time_left > 0):
 						indigest_cooldown_timer.stop()
 				elif (currentIndigest >= maxIndigest):
 					currentIndigest = maxIndigest
 					hasIndigestion = true
+					player_is_indigested.emit()
 					indigest_cooldown_timer.start()
 					print("You got indigestion. Wait until it goes down before eating")
-		
-			food.play_sound_effect()
+
 			# side effects
+			food.play_sound_effect()
 			player_consumed_something.emit(food.foodStats)
 			if (!isWater):
 				_handle_eat_food_success(food)
@@ -145,6 +151,7 @@ func _on_indigestion_cooldown_timer_timeout():
 	else:
 		print ("Player indigiestion is low enough to eat again")
 		hasIndigestion = false
+		player_no_longer_indigested.emit()
 		indigest_cooldown_timer.stop()
 		
 		

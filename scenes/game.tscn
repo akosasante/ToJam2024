@@ -1,26 +1,28 @@
-[gd_scene load_steps=23 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=25 format=3 uid="uid://l4voi5o858ka"]
 
-[ext_resource type="Texture2D" uid="uid://bj5c4vukf7lue" path="res://assets/images/background_-_table.png" id="1_dmsym"]
+[ext_resource type="Texture2D" uid="uid://bb7qpdta2fsv2" path="res://assets/images/background_-_table.png" id="1_dmsym"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
 [ext_resource type="PackedScene" uid="uid://08pwe18k1yyo" path="res://scenes/player_stat_bar__hunger.tscn" id="2_2khgc"]
+[ext_resource type="Texture2D" path="res://assets/images/mc_cat_default.png" id="2_88lle"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
 [ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
+[ext_resource type="Script" path="res://scenes/MC_Cat.gd" id="3_knrxa"]
 [ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
-[ext_resource type="AudioStream" uid="uid://da7ihqk7kevgd" path="res://assets/audio/AYCE_Game_Jam_Indigestion.mp3" id="4_klom4"]
+[ext_resource type="AudioStream" uid="uid://b158e1q00gwgi" path="res://assets/audio/AYCE_Game_Jam_Indigestion.mp3" id="4_klom4"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
-[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://food/Water.tscn" id="5_necd4"]
+[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
-[ext_resource type="AudioStream" uid="uid://d1nfqlj6f1qln" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="7_nqm72"]
+[ext_resource type="AudioStream" uid="uid://kacfq0fp26dk" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="7_nqm72"]
 [ext_resource type="Script" path="res://resources/food.gd" id="8_d6se6"]
-[ext_resource type="Texture2D" uid="uid://8t22vsqbyt0w" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
 [ext_resource type="Script" path="res://scripts/CallForBill.gd" id="10_xrnte"]
-[ext_resource type="Texture2D" uid="uid://cxa26qrr8j0ns" path="res://assets/images/FullBar.png" id="13_i56ki"]
+[ext_resource type="Texture2D" uid="uid://c0gjgggx1vb18" path="res://assets/images/FullBar.png" id="13_i56ki"]
 [ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
-[ext_resource type="Texture2D" uid="uid://bghjruh3sww0t" path="res://assets/images/ProgressBar.png" id="15_xmxxn"]
-[ext_resource type="Texture2D" uid="uid://cufv0jehm7xj8" path="res://assets/images/IndigestionBar.png" id="16_rv172"]
+[ext_resource type="Texture2D" uid="uid://d1vb0a3tukv40" path="res://assets/images/ProgressBar.png" id="15_xmxxn"]
+[ext_resource type="Texture2D" uid="uid://yw07x15bo4p3" path="res://assets/images/IndigestionBar.png" id="16_rv172"]
 
 [sub_resource type="Resource" id="Resource_02u3t"]
 resource_local_to_scene = true
@@ -42,6 +44,12 @@ position = Vector2(383, 106)
 position = Vector2(38, 23)
 scale = Vector2(1.62553, 1.66565)
 texture = ExtResource("1_dmsym")
+
+[node name="MC_Cat" type="Sprite2D" parent="."]
+position = Vector2(-694, 289)
+scale = Vector2(0.422, 0.422)
+texture = ExtResource("2_88lle")
+script = ExtResource("3_knrxa")
 
 [node name="Table" type="Node2D" parent="."]
 script = ExtResource("2_1cckm")
@@ -182,6 +190,7 @@ offset_bottom = -487.0
 scale = Vector2(0.322556, 0.322556)
 
 [node name="IpadMenu" parent="." instance=ExtResource("2_nikfs")]
+visible = false
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
