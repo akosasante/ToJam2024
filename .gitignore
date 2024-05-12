@@ -26,3 +26,4 @@ mono_crash.*.json
 *blend1
 *.DS_Store
 
+scenes/game2.tscn

@@ -85,11 +85,12 @@ func getFoodsOnPlates() -> Array:
 	var platedFoods: Array[Variant] = []
 	for child in food_area.get_children():
 		if (child.name.contains("Plate")):
-			var plateChild: Node = child.get_child(0)
-			if ((plateChild != null) && plateChild is TextureButton):
-				var platedFood: FoodButton = plateChild as FoodButton
-				if (platedFood != null):
-					platedFoods.push_back(platedFood)
+			if !child.get_children().is_empty():
+				var plateChild: Node = child.get_child(0)
+				if (plateChild != null && (plateChild is TextureButton)):
+					var platedFood: FoodButton = plateChild as FoodButton
+					if (platedFood != null):
+						platedFoods.push_back(platedFood)
 					
 	return platedFoods
 	
