@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs8bl8i0es0p7"]
+[gd_scene load_steps=11 format=3 uid="uid://cs8bl8i0es0p7"]
 
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="2_ojd2y"]
-[ext_resource type="PackedScene" path="res://scenes/call_for_bill_button.tscn" id="3_co6mb"]
+[ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_co6mb"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="4_mb2bp"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="5_0j026"]
-[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="6_4o5l1"]
-[ext_resource type="Texture2D" uid="uid://rl4uwe026dya" path="res://assets/images/background_test.png" id="6_vcxo8"]
-[ext_resource type="Texture2D" uid="uid://n4jcmyqj25pk" path="res://assets/images/water-glass-cup.jpg" id="7_t02na"]
+[ext_resource type="PackedScene" path="res://Food/Water.tscn" id="6_4o5l1"]
+[ext_resource type="Texture2D" uid="uid://bjgtiki80and4" path="res://assets/images/water-glass-cup.jpg" id="7_t02na"]
 [ext_resource type="Script" path="res://resources/food.gd" id="8_70ttd"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="9_084ak"]
-[ext_resource type="AudioStream" uid="uid://y34k1xo87rmo" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_1gmn6"]
+[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_1gmn6"]
 
 [sub_resource type="Resource" id="Resource_tff6q"]
 resource_local_to_scene = true
@@ -33,7 +32,6 @@ numDishesPerRow = 3
 [node name="BackgroundTest" type="Sprite2D" parent="Table"]
 position = Vector2(-1.50003, 3.49998)
 scale = Vector2(1.53906, 1.51824)
-texture = ExtResource("6_vcxo8")
 
 [node name="Player" parent="Table" instance=ExtResource("5_0j026")]
 position = Vector2(-538, 0)

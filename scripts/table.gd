@@ -4,9 +4,9 @@ extends Node2D
 
 static var foodScene: PackedScene = preload("res://scenes/food.tscn")
 
-@onready var food_container = $FoodContainer
+@onready var food_container: GridContainer = $FoodContainer
 
-@onready var food_area = $FoodArea
+@onready var food_area: ReferenceRect = $FoodArea
 
 signal food_ready
 
@@ -28,14 +28,14 @@ func updateFoodContainer():
 	intializeNumberGridColumns(food_container, numDishesPerRow)
 
 	for food_Key in MenuGlobals.foods_on_table:
-		var food = MenuGlobals.food_items[food_Key] as Food
+		var food: Food = MenuGlobals.food_items[food_Key] as Food
 		
 		var amount = MenuGlobals.foods_on_table[food_Key]
 		
-		var amountOnPlates = 0
+		var amountOnPlates: int = 0
 		
 		if (food_area != null):
-			var food_on_plate = getFoodsOnPlates()
+			var food_on_plate: Array = getFoodsOnPlates()
 			for platedFood in food_on_plate:
 				if ((platedFood as FoodButton).foodStats.food_name == food.food_name):
 					amountOnPlates += 1
@@ -76,19 +76,19 @@ func instantiateFoodMenuImage(gridContainer: GridContainer, food: Food):
 func spawnFoodButton(foodButton: FoodButton) -> bool:
 	for child in food_area.get_children():
 		if (child.name.contains("Plate")):
-			var plateChild = child.get_child(0)
+			var plateChild: Node = child.get_child(0)
 			if (plateChild == null):
 				child.add_child(foodButton)
 				return true;
 	return false
 
 func getFoodsOnPlates() -> Array:
-	var platedFoods = []
+	var platedFoods: Array[Variant] = []
 	for child in food_area.get_children():
 		if (child.name.contains("Plate")):
-			var plateChild = child.get_child(0)
-			if (plateChild != null && plateChild is TextureButton):
-				var platedFood = plateChild as FoodButton
+			var plateChild: Node = child.get_child(0)
+			if ((plateChild != null) && plateChild is TextureButton):
+				var platedFood: FoodButton = plateChild as FoodButton
 				if (platedFood != null):
 					platedFoods.push_back(platedFood)
 					
