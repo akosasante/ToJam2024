@@ -41,7 +41,7 @@ func update_food_on_table(foods_being_ordered: Dictionary):
 	
 	food_on_table_updated.emit()
 	
-func update_food_on_table_amount(food_name : String):
+func remove_food_from_table(food_name : String):
 	if (foods_on_table.has(food_name)):
 		foods_on_table[food_name] -= 1
 		

@@ -54,8 +54,6 @@ func _on_pressed():
 		s = "Eating"
 				
 	print("%s %s" % [s, food_name])
+	
+	# Player will get the food object and will handle removing it from the table if they were actually able to eat it
 	food_eaten.emit(self)
-	if (!isWater):
-		MenuGlobals.update_food_on_table_amount(food_id)
-		#MenuGlobals.remaining_capacity_change(1)
-		queue_free()
