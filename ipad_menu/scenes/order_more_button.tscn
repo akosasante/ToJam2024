@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bd4w4xcm32ws"]
+[gd_scene load_steps=5 format=3 uid="uid://bd4w4xcm32ws"]
 
 [ext_resource type="Script" path="res://ipad_menu/scripts/OpenMenuScript.gd" id="1_h1kqr"]
-[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_xavxv"]
+[ext_resource type="Texture2D" uid="uid://buwem1a503nf2" path="res://assets/buttons/OrderMore-Normal.svg" id="1_r0cqe"]
+[ext_resource type="Texture2D" uid="uid://c1dipvrhedycn" path="res://assets/buttons/OrderMore-Pressed.svg" id="2_uk8ki"]
+[ext_resource type="Texture2D" uid="uid://c7iw2iogj1pbq" path="res://assets/buttons/OrderMore-Hover.svg" id="3_bhu24"]
 
-[node name="order_more_button" type="Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_xavxv")
-theme_override_colors/font_color = Color(0.737255, 0, 0.878431, 1)
-theme_override_font_sizes/font_size = 72
-text = "ORDER MORE"
+[node name="order_more_button" type="TextureButton"]
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 251.0
+offset_bottom = 78.0
+texture_normal = ExtResource("1_r0cqe")
+texture_pressed = ExtResource("2_uk8ki")
+texture_hover = ExtResource("3_bhu24")
 script = ExtResource("1_h1kqr")
 
 [connection signal="pressed" from="." to="." method="_on_order_more_pressed"]

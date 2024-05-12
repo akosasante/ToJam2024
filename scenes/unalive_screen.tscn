@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_t5j1e"]
 [ext_resource type="Script" path="res://scenes/unalive_screen.gd" id="1_x7lxd"]
-[ext_resource type="Texture2D" uid="uid://ciy0hejmcosdj" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
+[ext_resource type="Texture2D" uid="uid://drkpirm4koxb7" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_7tv6e"]
-[ext_resource type="AudioStream" uid="uid://b4sf3qs3xsyag" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
+[ext_resource type="AudioStream" uid="uid://csbq5dof8oq2g" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="5_7j1gc"]
 
 [node name="UnaliveScreen" type="Node2D"]
@@ -64,8 +64,8 @@ offset_left = 1038.0
 offset_top = 594.0
 offset_right = 1175.0
 offset_bottom = 637.0
-theme = ExtResource("3_7tv6e")
 scale = Vector2(0.682845, 0.682845)
+theme = ExtResource("3_7tv6e")
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]

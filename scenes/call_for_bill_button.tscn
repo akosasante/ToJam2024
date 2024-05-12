@@ -1,18 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://co1nue1ypltyj"]
+[gd_scene load_steps=4 format=3 uid="uid://co1nue1ypltyj"]
 
-[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_u4gt8"]
-[ext_resource type="Script" path="res://scripts/CallForBill.gd" id="1_vkcki"]
+[ext_resource type="Texture2D" uid="uid://dukyuqdnrmtka" path="res://assets/buttons/Call-Normal.svg" id="1_fuix0"]
+[ext_resource type="Texture2D" uid="uid://c08otwram1cv4" path="res://assets/buttons/Call-Pressed.svg" id="2_5rj1j"]
+[ext_resource type="Texture2D" uid="uid://cuwuuicyl5qd3" path="res://assets/buttons/Call-Hover.svg" id="3_224s5"]
 
-[node name="call_for_bill" type="Button"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_u4gt8")
-theme_override_colors/font_color = Color(0.737255, 0, 0.878431, 1)
-theme_override_font_sizes/font_size = 72
-text = "CALL FOR BILL"
-script = ExtResource("1_vkcki")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
+[node name="TextureButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_fuix0")
+texture_pressed = ExtResource("2_5rj1j")
+texture_hover = ExtResource("3_224s5")

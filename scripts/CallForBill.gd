@@ -1,10 +1,9 @@
-extends Button
+extends Node
 
 @onready var button = $"."
 
 func _ready():
 	pass
-
 
 func _on_pressed():
 	# Warn: gotta keep this as load, rather than preload which would be a bit more perfomrant because it seems to be messing with Godot's caching

@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg6een12g0ti4"]
+[gd_scene load_steps=10 format=3 uid="uid://bg6een12g0ti4"]
 
 [ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenu.gd" id="1_wmjge"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="2_80u68"]
+[ext_resource type="Texture2D" uid="uid://ckyp26ngm2kok" path="res://assets/buttons/Confirm-Normal.svg" id="3_2gk6q"]
+[ext_resource type="Texture2D" uid="uid://cgy7nmjgod6bp" path="res://assets/buttons/Confirm-Pressed.svg" id="4_7vp8k"]
+[ext_resource type="Texture2D" uid="uid://bh0qfcxgfcps7" path="res://assets/buttons/Confirm-Hover.svg" id="5_5dye6"]
+[ext_resource type="Texture2D" uid="uid://c3ej3ou6u3hlg" path="res://assets/buttons/Cancel-Normal.svg" id="6_txv7j"]
+[ext_resource type="Texture2D" uid="uid://dqf3ehuch1ynd" path="res://assets/buttons/Cancel-Pressed.svg" id="7_f6yr7"]
+[ext_resource type="Texture2D" uid="uid://btvgx4v68ccds" path="res://assets/buttons/Cancel-Hover.svg" id="8_t2wdi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf7vo"]
 bg_color = Color(0.95186, 0.808878, 0.587872, 1)
@@ -54,19 +60,24 @@ custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("2_80u68")
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 25
 
-[node name="Confirm Button" type="Button" parent="Panel/ModalButtons"]
+[node name="Confirm Button" type="TextureButton" parent="Panel/ModalButtons"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "CONFIRM"
+texture_normal = ExtResource("3_2gk6q")
+texture_pressed = ExtResource("4_7vp8k")
+texture_hover = ExtResource("5_5dye6")
 
-[node name="Cancel Button" type="Button" parent="Panel/ModalButtons"]
+[node name="Cancel Button" type="TextureButton" parent="Panel/ModalButtons"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "CANCEL
-"
+texture_normal = ExtResource("6_txv7j")
+texture_pressed = ExtResource("7_f6yr7")
+texture_hover = ExtResource("8_t2wdi")
 
 [connection signal="pressed" from="Panel/ModalButtons/Confirm Button" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Panel/ModalButtons/Cancel Button" to="." method="_on_cancel_button_pressed"]

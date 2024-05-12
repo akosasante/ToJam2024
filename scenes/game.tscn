@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=19 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
@@ -6,14 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
 [ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
-[ext_resource type="Texture2D" uid="uid://d1vdm82misrd3" path="res://assets/images/background_test.png" id="3_mqky7"]
+[ext_resource type="Texture2D" uid="uid://c5bv5nobl6jsx" path="res://assets/images/background_test.png" id="3_mqky7"]
 [ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
-[ext_resource type="PackedScene" path="res://Food/Water.tscn" id="5_necd4"]
+[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://8t22vsqbyt0w" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Script" path="res://scripts/CallForBill.gd" id="10_xrnte"]
 [ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
 
@@ -112,25 +113,29 @@ offset_bottom = -284.0
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_bottom = 0.0
-offset_left = -375.0
-offset_bottom = 78.0
+anchor_right = 1.0
+offset_left = -313.0
+offset_top = 25.0
+offset_right = -63.0
+offset_bottom = 103.0
 grow_horizontal = 0
-grow_vertical = 1
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 42
 
 [node name="call_for_bill" parent="button_container" instance=ExtResource("3_4jf12")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
-offset_left = -389.0
-offset_top = -82.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -313.0
+offset_top = -81.0
+offset_right = -63.0
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 42
+script = ExtResource("10_xrnte")
 
 [node name="player_stats" type="Node2D" parent="."]
 position = Vector2(-274, -143)
@@ -176,3 +181,4 @@ offset_right = 882.0
 offset_bottom = 497.0
 
 [connection signal="food_ready" from="Table" to="Table/Player" method="_on_table_food_ready"]
+[connection signal="pressed" from="button_container/call_for_bill" to="button_container/call_for_bill" method="_on_pressed"]

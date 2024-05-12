@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/EndScreen.gd" id="1_nqy1v"]
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_upl2t"]
-[ext_resource type="AudioStream" uid="uid://bjwh3ixyhx471" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
-[ext_resource type="AudioStream" uid="uid://cab2uq0e3tcnp" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
+[ext_resource type="AudioStream" uid="uid://djna3yrulxgus" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
+[ext_resource type="AudioStream" uid="uid://b3b0e8652tanb" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_uxvtu"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_y3bfu"]
-[ext_resource type="Texture2D" uid="uid://yi8gqndijn7v" path="res://assets/images/Stier.png" id="4_ann5c"]
+[ext_resource type="Texture2D" uid="uid://l3vid076uvom" path="res://assets/images/Stier.png" id="4_ann5c"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_smqaw"]
 
