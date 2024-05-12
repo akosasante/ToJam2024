@@ -1,6 +1,7 @@
 extends Control
 
 var showIntructions: bool = false
+var showCredits: bool = false
 
 func _ready():
 	pass
@@ -17,6 +18,14 @@ func _on_instructions_button_pressed():
 	showIntructions = !showIntructions
 	$Instructions.visible = showIntructions
 
-func _on_button_pressed():
+func _on_close_instructions_pressed():
 	showIntructions = !showIntructions
 	$Instructions.visible = showIntructions
+
+func _on_credits_button_pressed():
+	showCredits = !showCredits
+	$Credits.visible = showCredits
+
+func _on_close_credits_pressed():
+	showCredits = !showCredits
+	$Credits.visible = showCredits

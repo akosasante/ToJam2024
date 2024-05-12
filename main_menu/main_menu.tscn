@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_fcv4a"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
 [ext_resource type="AudioStream" uid="uid://yegn1xqunq2h" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
+[ext_resource type="Texture2D" uid="uid://c4187k4dud31c" path="res://assets/images/danyan_art/Title_Screen_Final.png" id="3_fkh0u"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_py33q"]
-[ext_resource type="Texture2D" uid="uid://es4txrwax3fn" path="res://assets/images/title_screen_test.png" id="3_y8ddp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lo34n"]
 
@@ -25,7 +25,7 @@ script = ExtResource("1_udjb4")
 [node name="SushiFront" type="Sprite2D" parent="."]
 position = Vector2(575.5, 325)
 scale = Vector2(0.999132, 0.984802)
-texture = ExtResource("3_y8ddp")
+texture = ExtResource("3_fkh0u")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 process_thread_group = 2
@@ -37,24 +37,24 @@ autoplay = true
 
 [node name="Menu" type="Panel" parent="."]
 layout_mode = 2
-offset_left = 456.0
-offset_top = 373.0
-offset_right = 727.0
-offset_bottom = 556.0
+offset_left = 444.0
+offset_top = 424.0
+offset_right = 715.0
+offset_bottom = 605.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 layout_mode = 0
 offset_right = 271.0
-offset_bottom = 183.0
+offset_bottom = 181.0
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "ENTER"
 
 [node name="InstructionsButton" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "How to Play"
 
 [node name="SoundButton" parent="Menu/VBoxContainer" instance=ExtResource("3_py33q")]
@@ -62,8 +62,13 @@ layout_mode = 2
 
 [node name="ExitButton" type="Button" parent="Menu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 15
 text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Credits"
 
 [node name="Instructions" type="MarginContainer" parent="."]
 visible = false
@@ -99,7 +104,7 @@ Welcome to the Need for Sushi: Most Value All You Can Eat Experience! We highly 
 
 Just like any good trip to an all you can eat restaurant your goal is to get as much value as possible.
 
-As you eat your stomach will get fuller and fuller once its full its time to call for the bill. Also keep an eye on your indigestion level, if you're indigestion is getting high you can always reduce it by drinking water. Like any good all you can eat restaurant we offer unlimited water to fill you up.
+As you eat your stomach will get fuller and fuller. Once its full it's time to call for the bill. Also keep an eye on your indigestion level, if your indigestion is getting high you can always reduce it by drinking water. Like any good all you can eat restaurant we offer unlimited water to fill you up.
 
 Our chef recently learned how to make Fugu (Pufferfish) but be careful in case he didn't clean it properly, it could be slightly toxic.
 
@@ -108,7 +113,7 @@ You can order up to 9 items at once using the menu, and then eat the food by cli
 Be careful not to order more than you can eat, you will be charged extra for uneaten food.
 "
 
-[node name="Button" type="Button" parent="Instructions/Panel"]
+[node name="CloseInstructions" type="Button" parent="Instructions/Panel"]
 layout_mode = 0
 offset_left = 924.0
 offset_top = 10.0
@@ -116,18 +121,69 @@ offset_right = 942.0
 offset_bottom = 41.0
 text = "X"
 
-[node name="Credits" type="Label" parent="."]
+[node name="Credits" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="Credits"]
 layout_mode = 2
-offset_left = 456.0
-offset_top = 613.0
-offset_right = 727.0
-offset_bottom = 636.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Made at TOJam 2024"
-horizontal_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_5gq23")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/Panel"]
+layout_mode = 2
+offset_right = 552.0
+offset_bottom = 548.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[center][b]Credits:[/b]
+
+Developers:
+Akosua Asante
+Kwasi Asante
+Richard Tillo
+
+Game Design:
+Cam MacInnis
+
+Art:
+Daniel Yan
+
+Graphic Design and Spiritual Guidance:
+Flex Fox
+
+Music and Sound FX:
+Ray Billiald
+
+Special Thanks to:
+Nick Malizia
+Jatheesh Srikantharajah
+Dingtao Yin[/center]"
+
+[node name="CloseCredits" type="Button" parent="Credits/Panel"]
+layout_mode = 0
+offset_left = 532.0
+offset_right = 550.0
+offset_bottom = 31.0
+text = "X"
 
 [connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Instructions/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Instructions/Panel/CloseInstructions" to="." method="_on_close_instructions_pressed"]
+[connection signal="pressed" from="Credits/Panel/CloseCredits" to="." method="_on_close_credits_pressed"]
