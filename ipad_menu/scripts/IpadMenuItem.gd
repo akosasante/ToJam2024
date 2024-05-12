@@ -6,6 +6,7 @@ class_name IpadMenuItem
 @onready var down_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_down
 @onready var up_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_up
 var food_name: String
+var food_id: String
 
 signal increment_food_item
 signal decrement_food_item
@@ -15,13 +16,25 @@ signal decrement_food_item
 # what menu item this is. 
 # got this approach from: https://www.reddit.com/r/godot/comments/13pm5o5/comment/kxvpbex/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
-# TODO: Replace this with a Food class/Resource
+# TODO: Replace this with a FoodButton class/Resource
 func with_data(given_image: Texture2D, name: String) -> IpadMenuItem:
 	if menu_item_image == null:
 		menu_item_image = $VBoxContainer/Control/menu_item_image
 
 	menu_item_image.texture = given_image
 	food_name = name
+	food_id = name
+	
+	return self
+	
+
+func load_data(food: Food) -> IpadMenuItem:
+	if menu_item_image == null:
+		menu_item_image = $VBoxContainer/Control/menu_item_image
+
+	menu_item_image.texture = food.image
+	food_name = food.food_name
+	food_id = food.food_id
 	
 	return self
 
@@ -56,7 +69,7 @@ func _on_menu_item_button_up_pressed():
 		var new_amount: int = int(label.text) + 1
 		label.text = str(new_amount)
 		# Eventually we'd want to update this to also include the food name
-		increment_food_item.emit(food_name)
+		increment_food_item.emit(food_id)
 		if down_arrow.disabled:
 			down_arrow.disabled = false
 		
@@ -69,5 +82,5 @@ func _on_menu_item_button_down_pressed():
 			down_arrow.disabled = true
 			
 		label.text = str(curr_amount - 1)
-		decrement_food_item.emit(food_name)
+		decrement_food_item.emit(food_id)
 		

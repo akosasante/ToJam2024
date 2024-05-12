@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cum045u36miqr"]
+
+[ext_resource type="Texture2D" uid="uid://ddjy6evr0t0ia" path="res://akosua_test_images/sushi5.png" id="1_0r88e"]
+[ext_resource type="Script" path="res://resources/food.gd" id="1_mf62e"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_mf62e")
+fullness = 12
+indigestion = 1
+food_value = 15
+food_name = "Salmon Nigiri"
+food_id = "SalmonNigiri"
+isWater = false
+image = ExtResource("1_0r88e")

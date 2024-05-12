@@ -17,15 +17,19 @@ func _ready():
 	# Initialize the shape of the grid
 	intializeNumberGridColumns(gridContainer, numDishesPerRow)
 
+	for food_key in MenuGlobals.food_items:
+		var food_stats = MenuGlobals.food_items[food_key] as Food
+		instantiateFoodMenuImage(gridContainer, food_stats)
+		
 	# populate the menu with my test sushi images
-	for n in range(1, numAvailableDishes + 1):
-		var path: String = "res://akosua_test_images/sushi%s.png" % n
-		print_debug("path: ", path)
-
-		MenuGlobals.foods_image_dict["SUSHI #%s" % n] = path
-
-		var image: Texture2D = load(path)
-		instantiateDishMenuImage(gridContainer, image, "SUSHI #%s" % n)
+	#for n in range(1, numAvailableDishes + 1):
+		#var path: String = "res://akosua_test_images/sushi%s.png" % n
+		#print_debug("path: ", path)
+#
+		#MenuGlobals.foods_image_dict["SUSHI #%s" % n] = path
+#
+		#var image: Texture2D = load(path)
+		#instantiateDishMenuImage(gridContainer, image, "SUSHI #%s" % n)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,6 +45,13 @@ func intializeNumberGridColumns(gridContainer: GridContainer, perRow: int):
 func instantiateDishMenuImage(gridContainer: GridContainer, image: Texture2D, name: String):
 	var loadedMenuItem: IpadMenuItem = menuItemScene.instantiate().with_data(image, name)
 	loadedMenuItem.name = name
+	loadedMenuItem.increment_food_item.connect(_on_increment_food_item)
+	loadedMenuItem.decrement_food_item.connect(_on_decrement_food_item)
+	gridContainer.add_child(loadedMenuItem)
+	
+func instantiateFoodMenuImage(gridContainer: GridContainer, food: Food):
+	var loadedMenuItem: IpadMenuItem = menuItemScene.instantiate().load_data(food)
+	loadedMenuItem.name = food.food_name
 	loadedMenuItem.increment_food_item.connect(_on_increment_food_item)
 	loadedMenuItem.decrement_food_item.connect(_on_decrement_food_item)
 	gridContainer.add_child(loadedMenuItem)

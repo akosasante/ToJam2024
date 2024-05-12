@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bnge6qltxgpis"]
+
+[ext_resource type="Texture2D" uid="uid://bdva370onk8gf" path="res://assets/images/pufferfish.png" id="1_0ij88"]
+[ext_resource type="Script" path="res://resources/food.gd" id="1_6stio"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_6stio")
+fullness = 10
+indigestion = 25
+food_value = 100
+food_name = "Pufferfish"
+food_id = "Pufferfish"
+isWater = false
+image = ExtResource("1_0ij88")

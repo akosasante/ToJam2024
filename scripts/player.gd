@@ -15,7 +15,7 @@ var currentIndigest : int = 0
 
 @onready var canEat : bool = true
 
-var water : Food
+var water : FoodButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -98,7 +98,7 @@ func eat_drink_food(food, isWater):
 			print ("Current Indigestion: %s" % currentIndigest)
 			print("Player can't eat right now")
 	else:
-		print("Food Is Null")
+		print("FoodButton Is Null")
 		
 func time_left_until_eat():
 	var time_left = indigest_cooldown_timer.time_left

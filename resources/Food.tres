@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Food" load_steps=2 format=3 uid="uid://bhel70rc5l0hi"]
+
+[ext_resource type="Script" path="res://resources/food.gd" id="1_3qw2i"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_3qw2i")
+fullness = 0
+indigestion = 0
+food_value = 0
+food_name = ""
+food_id = ""
+isWater = false

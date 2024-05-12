@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://guy0aqvhe53t"]
+
+[ext_resource type="Script" path="res://resources/food.gd" id="1_64wew"]
+[ext_resource type="Texture2D" uid="uid://cikeby0sm2x5o" path="res://assets/images/salmonsashimi.jpeg" id="1_d483e"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_64wew")
+fullness = 15
+indigestion = 1
+food_value = 25
+food_name = "Salmon Sashimi"
+food_id = "SalmonSashimi"
+isWater = false
+image = ExtResource("1_d483e")

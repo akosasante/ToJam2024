@@ -8,9 +8,19 @@ static var MAX_CAPACITY : int = 9
 
 var remaining_capacity: int = MAX_CAPACITY
 
-var foods_on_table := {}
+var food_items = {
+	"CaliforniaRoll": load("res://resources/CaliforniaRoll.tres") as Food,
+	"Edamame": load("res://resources/Edmame.tres") as Food,
+	"MisoSoup": load("res://resources/MisoSoup.tres") as Food,
+	"Pufferfish": load("res://resources/PufferFish.tres") as Food,
+	"SalmonNigiri": load("res://resources/SalmonNigiri.tres") as Food,
+	"SalmonSashimi": load("res://resources/SalmonSashimi.tres") as Food,
+	"ShrimpTempura": load("res://resources/ShrimpTempura.tres") as Food,
+	"SpicySalmonRoll": load("res://resources/SpicySalmonRoll.tres") as Food,
+	"TamagoSushi": load("res://resources/TamagoSushi.tres") as Food
+}
 
-var foods_image_dict = {}
+var foods_on_table = {}
 
 # TODO: This is just an example so that we can test the EndScreen
 # Should end up being an array of Food obbjects or dictionaries with [{ food: FoodObject, amount_eaten: number}] 
@@ -34,6 +44,11 @@ func update_food_on_table(foods_being_ordered: Dictionary):
 func update_food_on_table_amount(food_name : String):
 	if (foods_on_table.has(food_name)):
 		foods_on_table[food_name] -= 1
+		
+		var amount = foods_on_table[food_name]
+		if (amount <= 0):
+			foods_on_table.erase(food_name)
+		
 	reset_remaining_capacity()
 	
 func remaining_capacity_change(value: int):
@@ -52,7 +67,7 @@ func reset_remaining_capacity():
 		push_warning("Unexpected: somehow remaining capacity (%d) is greater than max capacity (%d). Program will continue but weird things may happen" % [remaining_capacity, MAX_CAPACITY])
 
 func findAllFoods(node: Node, result : Array) -> void:
-	if node is Food:
+	if node is FoodButton:
 		result.push_back(node)
 	for child in node.get_children():
 		findAllFoods(child, result)

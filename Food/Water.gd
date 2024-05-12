@@ -1,14 +1,20 @@
-extends Sprite2D
-
-var fullness = 5
-var indigestion = -5
-var food_value = 0
-var food_name = 'Water'
+extends FoodButton
+class_name Water
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	super()
+	
+	if (foodStats == null):
+		load_stats(load("res://resources/Water.tres") as Food)
+	
+	if (foodStats == null):
+		fullness = 5
+		indigestion = -5
+		food_value = 0
+		food_name = 'Water'
+		isWater = true
+		food_id = "Water"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
