@@ -15,6 +15,8 @@ var food_id : String
 
 @export var isWater : bool = false
 
+@export var deathChance : float = 0.0
+
 var image : Texture2D
 
 signal food_eaten(food)
@@ -41,6 +43,7 @@ func load_stats(food: Food):
 		isWater = food.isWater
 		image = food.image
 		texture_normal = image
+		deathChance = food.deathChance
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

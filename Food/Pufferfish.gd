@@ -15,6 +15,7 @@ func _ready():
 		food_name = 'Pufferfish'
 		isWater = false
 		food_id = "Pufferfish"
+		deathChance = 50.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -71,3 +71,8 @@ func findAllFoods(node: Node, result : Array) -> void:
 		result.push_back(node)
 	for child in node.get_children():
 		findAllFoods(child, result)
+		
+		
+func reset_all():
+	foods_on_table = {}
+	reset_remaining_capacity()

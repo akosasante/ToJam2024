@@ -12,10 +12,13 @@ var currentIndigest: int = 0
 @export var indigest_reduction_amount: int = 5
 @export var indigest_cooldown_wait_time: int = 10
 
-@onready var indigest_cooldown_timer = $IndigestionCooldownTimer
+@onready var indigest_cooldown_timer: Timer = $IndigestionCooldownTimer
 @onready var canEat: bool = true
 
 var water: FoodButton
+
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+static var deathScene: PackedScene = preload("res://scenes/unalive_screen.tscn")
 
 signal player_consumed_something
 
@@ -30,7 +33,7 @@ func _ready():
 	print ("Max Indigestion: %s" % maxIndigest)
 	print ("Current Indigestion: %s" % currentIndigest)
 
-	var res = []
+	var res: Array[Variant] = []
 	MenuGlobals.findAllFoods(get_tree().current_scene, res)
 	for food in res:
 		if food.isWater:
@@ -40,7 +43,7 @@ func _ready():
 	if (water):
 		water.food_eaten.connect(_on_kwasi_test_water_food_eaten)
 
-var timeVar = 0
+var timeVar: int = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +57,7 @@ func _process(delta):
 
 
 func _on_table_food_ready():
-	var res = []
+	var res: Array[FoodButton] = []
 	MenuGlobals.findAllFoods(get_tree().current_scene, res)
 	for food in res:
 		if !food.isWater:
@@ -73,6 +76,10 @@ func eat_drink_food(food, isWater):
 	if (food):
 		canEat = (isWater && !isFull) || (!isFull && !hasIndigestion)
 		if (canEat):
+			# handle chance of randomly badly prepared pufferfish
+			var deathRng: float = rng.randf_range(0.0, 100.0)
+			if deathRng < food.deathChance:
+				SceneTransition.change_scene_with_dissolve(deathScene)
 			#handle fullness
 			currentFull += food.fullness
 			if (currentFull >= maxFull):
@@ -119,8 +126,8 @@ func eat_drink_food(food, isWater):
 
 
 func time_left_until_eat():
-	var time_left = indigest_cooldown_timer.time_left
-	var second    = int(time_left) % 60
+	var time_left: float = indigest_cooldown_timer.time_left
+	var second: int      = int(time_left) % 60
 	return second
 
 
