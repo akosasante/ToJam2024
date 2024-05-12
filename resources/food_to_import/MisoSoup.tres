@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://guy0aqvhe53t"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_3nw8h"]
-[ext_resource type="Texture2D" uid="uid://wqx630wlshuv" path="res://assets/images/salmonsashimi.jpeg" id="1_4yj61"]
+[ext_resource type="Texture2D" uid="uid://b5yu0m3v68efm" path="res://assets/images/danyan_art/miso_soup.png" id="1_roiey"]
 
 [resource]
 resource_local_to_scene = true
@@ -12,5 +12,5 @@ food_value = 2
 food_name = "Miso Soup"
 food_id = "MisoSoup"
 isWater = false
-image = ExtResource("1_4yj61")
+image = ExtResource("1_roiey")
 deathChance = 0.0
