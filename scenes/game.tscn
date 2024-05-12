@@ -190,7 +190,6 @@ offset_bottom = -487.0
 scale = Vector2(0.322556, 0.322556)
 
 [node name="IpadMenu" parent="." instance=ExtResource("2_nikfs")]
-visible = false
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
