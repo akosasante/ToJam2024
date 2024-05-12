@@ -1,22 +1,23 @@
-[gd_scene load_steps=17 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=18 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
-[ext_resource type="PackedScene" uid="uid://08pwe18k1yyo" path="res://scenes/player_stat_bar__hunger.tscn" id="2_2khgc"]
+[ext_resource type="PackedScene" path="res://scenes/player_stat_bar__hunger.tscn" id="2_2khgc"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
-[ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
+[ext_resource type="PackedScene" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
-[ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
+[ext_resource type="PackedScene" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
-[ext_resource type="PackedScene" path="res://Food/Water.tscn" id="5_necd4"]
+[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://bfyu7v1bywsdb" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://y34k1xo87rmo" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://rl4uwe026dya" path="res://assets/images/background_test.png" id="12_5ywbr"]
 [ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
 
-[sub_resource type="Resource" id="Resource_7wt0v"]
+[sub_resource type="Resource" id="Resource_knto7"]
 resource_local_to_scene = true
 script = ExtResource("7_gipl5")
 fullness = 5
@@ -32,17 +33,80 @@ deathChance = 0.0
 position = Vector2(383, 106)
 
 [node name="Night" type="Sprite2D" parent="."]
-position = Vector2(3.00003, -215)
-scale = Vector2(0.748611, 0.748611)
+position = Vector2(0.999969, 0.999992)
+scale = Vector2(0.691406, 0.691667)
 texture = ExtResource("1_g63e3")
+
+[node name="Table" type="Node2D" parent="."]
+script = ExtResource("2_1cckm")
+numDishesPerRow = 3
+
+[node name="BackgroundTest" type="Sprite2D" parent="Table"]
+position = Vector2(-1.50003, 3.49998)
+scale = Vector2(1.53906, 1.51824)
+texture = ExtResource("12_5ywbr")
+
+[node name="Player" parent="Table" instance=ExtResource("3_jlkxj")]
+position = Vector2(-538, 0)
+
+[node name="Water" parent="Table" instance=ExtResource("5_necd4")]
+offset_left = -685.0
+offset_top = -206.0
+offset_right = -185.0
+offset_bottom = 294.0
+scale = Vector2(0.37, 0.37)
+texture_normal = ExtResource("10_56g65")
+foodStats = SubResource("Resource_knto7")
+
+[node name="FoodContainer" type="GridContainer" parent="Table"]
+visible = false
+offset_left = -131.0
+offset_top = -99.0
+offset_right = 572.0
+offset_bottom = 285.0
+columns = 2
+
+[node name="FoodArea" type="ReferenceRect" parent="Table"]
+offset_left = -483.0
+offset_top = -213.0
+offset_right = 659.0
+offset_bottom = 466.0
+border_width = 5.0
+
+[node name="Plate1" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(159, 219)
+
+[node name="Plate2" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(343, 107)
+
+[node name="Plate3" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(719, 99)
+
+[node name="Plate4" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(959, 107)
+
+[node name="Plate5" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(127, 491)
+
+[node name="Plate6" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(407, 371)
+
+[node name="Plate7" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(863, 499)
+
+[node name="Plate8" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(831, 307)
+
+[node name="Plate9" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(575, 483)
 
 [node name="button_container" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 147.0
-offset_top = -321.0
-offset_right = 575.0
-offset_bottom = -106.0
+offset_left = 461.0
+offset_top = -488.0
+offset_right = 885.0
+offset_bottom = -284.0
 
 [node name="order_more_button" parent="button_container" instance=ExtResource("7_g2a0i")]
 layout_mode = 1
@@ -69,15 +133,15 @@ size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 42
 
 [node name="player_stats" type="Node2D" parent="."]
+position = Vector2(-274, -143)
 script = ExtResource("4_sfjyo")
 
 [node name="hunger_bar" parent="player_stats" instance=ExtResource("2_2khgc")]
 offset_left = -573.0
-offset_top = -323.0
-offset_right = -133.0
-offset_bottom = -47.0
-size_flags_horizontal = 0
-value = 0.0
+offset_top = -320.0
+offset_right = -110.0
+offset_bottom = -37.0
+size_flags_vertical = 3
 
 [node name="indigestion_bar" parent="player_stats" instance=ExtResource("3_qjgus")]
 offset_left = -573.0
@@ -86,42 +150,19 @@ offset_right = -133.0
 offset_bottom = 42.0
 scale = Vector2(1, 1)
 size_flags_vertical = 3
-value = 0.0
-
-[node name="Table" type="Node2D" parent="."]
-script = ExtResource("2_1cckm")
-numDishesPerRow = 3
-
-[node name="Player" parent="Table" instance=ExtResource("3_jlkxj")]
-visible = false
-position = Vector2(-538, 0)
-
-[node name="Water" parent="Table" instance=ExtResource("5_necd4")]
-offset_left = -357.0
-offset_top = -67.0
-offset_right = -177.0
-offset_bottom = 113.0
-foodStats = SubResource("Resource_7wt0v")
-
-[node name="FoodContainer" type="GridContainer" parent="Table"]
-offset_left = -131.0
-offset_top = -99.0
-offset_right = 572.0
-offset_bottom = 285.0
-columns = 2
 
 [node name="Timer" parent="." instance=ExtResource("14_3scn0")]
-offset_left = -41.0
-offset_top = -320.0
-offset_right = -41.0
-offset_bottom = -320.0
+offset_left = 280.0
+offset_top = -487.0
+offset_right = 280.0
+offset_bottom = -487.0
 scale = Vector2(0.322556, 0.322556)
 
 [node name="IpadMenu" parent="." instance=ExtResource("2_nikfs")]
-visible = false
-scale = Vector2(0.85, 0.85)
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
 
 [node name="TableMusic" type="AudioStreamPlayer" parent="." groups=["Sounds"]]
 stream = ExtResource("10_oslyv")

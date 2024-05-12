@@ -7,6 +7,7 @@
 script = ExtResource("1_shdg6")
 
 [node name="Man" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1.00006, 1.00003)
 scale = Vector2(0.328204, 0.3)
 texture = ExtResource("1_pubg2")

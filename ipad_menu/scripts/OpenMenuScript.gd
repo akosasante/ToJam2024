@@ -12,7 +12,7 @@ func _on_order_more_pressed():
 	var top_scene: Node = get_tree().current_scene
 	var ipad := ipadMenu.instantiate()
 
-	ipad.scale = Vector2(0.85, 0.85)
+	ipad.scale = Vector2(1.5, 1.5)
 	top_scene.add_child(ipad)
 	button.disabled = true
 

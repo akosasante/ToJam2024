@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://cs8bl8i0es0p7"]
+
+[ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="2_ojd2y"]
+[ext_resource type="PackedScene" path="res://scenes/call_for_bill_button.tscn" id="3_co6mb"]
+[ext_resource type="Script" path="res://scripts/table.gd" id="4_mb2bp"]
+[ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="5_0j026"]
+[ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="6_4o5l1"]
+[ext_resource type="Texture2D" uid="uid://rl4uwe026dya" path="res://assets/images/background_test.png" id="6_vcxo8"]
+[ext_resource type="Texture2D" uid="uid://n4jcmyqj25pk" path="res://assets/images/water-glass-cup.jpg" id="7_t02na"]
+[ext_resource type="Script" path="res://resources/food.gd" id="8_70ttd"]
+[ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="9_084ak"]
+[ext_resource type="AudioStream" uid="uid://y34k1xo87rmo" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_1gmn6"]
+
+[sub_resource type="Resource" id="Resource_tff6q"]
+resource_local_to_scene = true
+script = ExtResource("8_70ttd")
+fullness = 5
+indigestion = -5
+food_value = 0
+food_name = "Water"
+food_id = ""
+isWater = true
+image = ExtResource("7_t02na")
+deathChance = 0.0
+
+[node name="Game" type="Node2D"]
+position = Vector2(383, 106)
+
+[node name="Table" type="Node2D" parent="."]
+script = ExtResource("4_mb2bp")
+numDishesPerRow = 3
+
+[node name="BackgroundTest" type="Sprite2D" parent="Table"]
+position = Vector2(-1.50003, 3.49998)
+scale = Vector2(1.53906, 1.51824)
+texture = ExtResource("6_vcxo8")
+
+[node name="Player" parent="Table" instance=ExtResource("5_0j026")]
+position = Vector2(-538, 0)
+
+[node name="Water" parent="Table" instance=ExtResource("6_4o5l1")]
+offset_left = -682.0
+offset_top = -216.0
+offset_right = -502.0
+offset_bottom = -36.0
+foodStats = SubResource("Resource_tff6q")
+
+[node name="FoodContainer" type="GridContainer" parent="Table"]
+visible = false
+offset_top = -138.0
+offset_right = 578.0
+offset_bottom = 170.0
+columns = 2
+
+[node name="FoodArea" type="ReferenceRect" parent="Table"]
+offset_left = -494.0
+offset_top = -213.0
+offset_right = 666.0
+offset_bottom = 466.0
+border_width = 5.0
+
+[node name="Plate1" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(159, 219)
+
+[node name="Plate2" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(343, 107)
+
+[node name="Plate3" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(719, 99)
+
+[node name="Plate4" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(959, 107)
+
+[node name="Plate5" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(127, 491)
+
+[node name="Plate6" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(407, 371)
+
+[node name="Plate7" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(863, 499)
+
+[node name="Plate8" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(831, 307)
+
+[node name="Plate9" type="Node2D" parent="Table/FoodArea"]
+position = Vector2(575, 483)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -884.0
+offset_top = -497.0
+offset_right = 884.0
+offset_bottom = -257.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="order_more_button" parent="VBoxContainer" instance=ExtResource("2_ojd2y")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="call_for_bill" parent="VBoxContainer" instance=ExtResource("3_co6mb")]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="IpadMenu" parent="." instance=ExtResource("9_084ak")]
+scale = Vector2(0.85, 0.85)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
+
+[node name="TableMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_1gmn6")
+volume_db = 5.0
+autoplay = true
+
+[connection signal="food_ready" from="Table" to="Table/Player" method="_on_table_food_ready"]
