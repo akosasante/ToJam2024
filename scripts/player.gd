@@ -120,13 +120,9 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 			# side effects
 			player_consumed_something.emit(food.foodStats)
 			if (!isWater):
-				# We were able to eat it, so update the amount on table and delete the food
-				# also record that we successfully ate so we have it for the final scoring
-				MenuGlobals.foods_eaten.push_back(food.foodStats)
-				MenuGlobals.remove_food_from_table(food.food_id)
-				food.queue_free()
+				_handle_eat_food_success(food)
 		else:
-			_animate_inedible_food(food)
+			_animate_inedible_food(food) if !food.isWater else null
 			print ("Current Fullness: %s" % currentFull)
 			print ("Current Indigestion: %s" % currentIndigest)
 			print("Player can't eat right now")
@@ -167,3 +163,21 @@ func _animate_inedible_food(foodButton: FoodButton):
 	for i in shake_count:
 		tween.tween_property(foodButton, "position", Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount)), shake_duration)
 		tween.play()
+		
+		
+func _handle_eat_food_success(foodButton: FoodButton):
+	# We were able to eat it, so update the amount on table and delete the food
+	# also record that we successfully ate so we have it for the final scoring
+	MenuGlobals.foods_eaten.push_back(foodButton.foodStats)
+	MenuGlobals.remove_food_from_table(foodButton.food_id)
+	
+	var plate: Node2D = foodButton.get_parent() as Node2D
+	
+	# Animate sprite
+	var tween: Tween = create_tween()
+	tween.tween_property(plate, "rotation_degrees", 360, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(foodButton, "scale", Vector2(0, 0), 0.45).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(foodButton, "modulate:a", 0, 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func(): foodButton.queue_free())
+	tween.play()
+	

@@ -4,14 +4,14 @@
 [ext_resource type="Script" path="res://food/salmonSashimi.gd" id="2_ve0t1"]
 [ext_resource type="Script" path="res://food/shrimpTempura.gd" id="3_f4gu8"]
 [ext_resource type="Script" path="res://food/californiaRoll.gd" id="4_7hgvf"]
-[ext_resource type="Texture2D" uid="uid://disa3sjbkpwwc" path="res://akosua_test_images/sushi5.png" id="5_dqjpt"]
+[ext_resource type="Texture2D" uid="uid://snrx0bjw7lsq" path="res://akosua_test_images/sushi5.png" id="5_dqjpt"]
 [ext_resource type="Script" path="res://food/salmonNigiri.gd" id="5_sv18p"]
 [ext_resource type="Script" path="res://food/edmame.gd" id="6_iw5rr"]
 [ext_resource type="Script" path="res://food/water.gd" id="7_hgtbx"]
 [ext_resource type="Script" path="res://food/misoSoup.gd" id="7_sgotp"]
 [ext_resource type="Script" path="res://food/pufferfish.gd" id="9_iddpu"]
 [ext_resource type="Script" path="res://food/tamagoSushi.gd" id="10_aeewr"]
-[ext_resource type="Texture2D" uid="uid://hn2882aohu8g" path="res://akosua_test_images/sushi4.png" id="11_ocd08"]
+[ext_resource type="Texture2D" uid="uid://bfgu2uutkpjne" path="res://akosua_test_images/sushi4.png" id="11_ocd08"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sukro"]
 size = Vector2(200, 200)

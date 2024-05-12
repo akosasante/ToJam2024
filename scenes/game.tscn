@@ -1,20 +1,20 @@
 [gd_scene load_steps=20 format=3 uid="uid://l4voi5o858ka"]
 
-[ext_resource type="Texture2D" uid="uid://mjk7jdjm1jds" path="res://assets/images/background_-_table.png" id="1_dmsym"]
+[ext_resource type="Texture2D" uid="uid://bb7qpdta2fsv2" path="res://assets/images/background_-_table.png" id="1_dmsym"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
 [ext_resource type="PackedScene" uid="uid://08pwe18k1yyo" path="res://scenes/player_stat_bar__hunger.tscn" id="2_2khgc"]
 [ext_resource type="PackedScene" uid="uid://bg6een12g0ti4" path="res://ipad_menu/scenes/ipad_menu.tscn" id="2_nikfs"]
-[ext_resource type="PackedScene" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
+[ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
 [ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
-[ext_resource type="AudioStream" uid="uid://7lbp0kfxbng7" path="res://assets/audio/AYCE_Game_Jam_Indigestion.mp3" id="4_klom4"]
+[ext_resource type="AudioStream" uid="uid://b158e1q00gwgi" path="res://assets/audio/AYCE_Game_Jam_Indigestion.mp3" id="4_klom4"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
 [ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="AudioStream" uid="uid://ggmbwto3gbk0" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="7_nqm72"]
-[ext_resource type="Texture2D" uid="uid://bfyu7v1bywsdb" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://y34k1xo87rmo" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="AudioStream" uid="uid://kacfq0fp26dk" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="7_nqm72"]
+[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
 [ext_resource type="Script" path="res://scripts/CallForBill.gd" id="10_xrnte"]
 [ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
@@ -30,7 +30,6 @@ food_id = "Water"
 isWater = true
 image = ExtResource("10_56g65")
 deathChance = 0.0
-consumtionSound = ExtResource("7_nqm72")
 
 [node name="Game" type="Node2D"]
 position = Vector2(383, 106)
@@ -171,7 +170,6 @@ zoom = Vector2(0.65, 0.65)
 [node name="TableMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_oslyv")
 volume_db = 5.0
-autoplay = true
 
 [node name="SoundEffectPlayer" type="AudioStreamPlayer" parent="."]
 
