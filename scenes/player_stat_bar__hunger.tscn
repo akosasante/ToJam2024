@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://08pwe18k1yyo"]
+
+[ext_resource type="Texture2D" uid="uid://3m0ajk5ddjrx" path="res://assets/images/healthbarempty.png" id="1_kvdvr"]
+[ext_resource type="Texture2D" uid="uid://cq0h3wki25ayb" path="res://assets/images/healthbarinside.png" id="2_rlu2t"]
+
+[node name="player_stat_bar" type="TextureProgressBar"]
+offset_right = 79.0
+offset_bottom = 312.0
+scale = Vector2(8.25914, 1.563)
+value = 80.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_kvdvr")
+texture_progress = ExtResource("2_rlu2t")
+tint_under = Color(0.801263, 4.23551e-06, 2.88785e-07, 1)
+tint_progress = Color(1, 0.117326, 0.367221, 1)

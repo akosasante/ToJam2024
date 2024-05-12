@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dljlic1lq6tuy"]
+
+[ext_resource type="Texture2D" uid="uid://cf4xjbxcfdcjh" path="res://assets/images/hungerbarempty.png" id="1_ato3v"]
+[ext_resource type="Texture2D" uid="uid://cff3mece4dp40" path="res://assets/images/hungerbarinnter.png" id="2_tvovt"]
+
+[node name="player_stat_bar__indigestion" type="TextureProgressBar"]
+offset_right = 79.0
+offset_bottom = 312.0
+scale = Vector2(8.25914, 1.563)
+value = 67.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_ato3v")
+texture_progress = ExtResource("2_tvovt")
