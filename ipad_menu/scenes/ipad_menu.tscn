@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg6een12g0ti4"]
+[gd_scene load_steps=4 format=3 uid="uid://bg6een12g0ti4"]
 
 [ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenu.gd" id="1_wmjge"]
+[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="2_80u68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf7vo"]
 bg_color = Color(0.95186, 0.808878, 0.587872, 1)
@@ -52,6 +53,7 @@ columns = 2
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("2_80u68")
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_right = 200
 
