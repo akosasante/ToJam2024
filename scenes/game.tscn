@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://co1nue1ypltyj" path="res://scenes/call_for_bill_button.tscn" id="3_4jf12"]
 [ext_resource type="PackedScene" uid="uid://3d7ah50slypn" path="res://scenes/player.tscn" id="3_jlkxj"]
 [ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
+[ext_resource type="AudioStream" uid="uid://b158e1q00gwgi" path="res://assets/audio/AYCE_Game_Jam_Indigestion.mp3" id="4_klom4"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
 [ext_resource type="PackedScene" uid="uid://c61rmfof68ofd" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="Texture2D" uid="uid://8t22vsqbyt0w" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
 [ext_resource type="Script" path="res://scripts/CallForBill.gd" id="10_xrnte"]
 [ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
@@ -43,6 +44,7 @@ numDishesPerRow = 3
 
 [node name="Player" parent="Table" instance=ExtResource("3_jlkxj")]
 position = Vector2(-538, 0)
+indigestion_sound_effect = ExtResource("4_klom4")
 
 [node name="Water" parent="Table" instance=ExtResource("5_necd4")]
 offset_left = -685.0
@@ -167,6 +169,8 @@ zoom = Vector2(0.65, 0.65)
 stream = ExtResource("10_oslyv")
 volume_db = 5.0
 autoplay = true
+
+[node name="SoundEffectPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="SoundButton" parent="." instance=ExtResource("15_5jgun")]
 offset_left = 711.0

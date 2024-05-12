@@ -11,9 +11,11 @@ var currentIndigest: int = 0
 
 @export var indigest_reduction_amount: int = 10
 @export var indigest_cooldown_wait_time: int = 10
+@export var indigestion_sound_effect: AudioStreamMP3
 
 @onready var indigest_cooldown_timer: Timer = $IndigestionCooldownTimer
 @onready var canEat: bool = true
+@onready var sound_effect_player: AudioStreamPlayer = $"../../SoundEffectPlayer"
 
 var water: FoodButton
 
@@ -123,6 +125,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 				MenuGlobals.remove_food_from_table(food.food_id)
 				food.queue_free()
 		else:
+			_animate_inedible_food(food)
 			print ("Current Fullness: %s" % currentFull)
 			print ("Current Indigestion: %s" % currentIndigest)
 			print("Player can't eat right now")
@@ -130,7 +133,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 		print("FoodButton Is Null")
 		
 
-func time_left_until_eat():
+func time_left_until_eat() -> int:
 	var time_left: float = indigest_cooldown_timer.time_left
 	var second: int      = int(time_left) % 60
 	return second
@@ -146,3 +149,19 @@ func _on_indigestion_cooldown_timer_timeout():
 		print ("Player indigiestion is low enough to eat again")
 		hasIndigestion = false
 		indigest_cooldown_timer.stop()
+		
+		
+func _animate_inedible_food(foodButton: FoodButton):
+	if indigestion_sound_effect:
+		sound_effect_player.stream = indigestion_sound_effect
+		sound_effect_player.volume_db = 10
+		sound_effect_player.play(0.38)
+		
+	var tween : Tween         = create_tween()
+	var shake_amount: int     = 5
+	var shake_duration: float = 0.1
+	var shake_count: int      = 5
+
+	for i in shake_count:
+		tween.tween_property(foodButton, "position", Vector2(randf_range(-shake_amount, shake_amount), randf_range(-shake_amount, shake_amount)), shake_duration)
+		tween.play()
