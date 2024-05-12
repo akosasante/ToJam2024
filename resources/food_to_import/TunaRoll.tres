@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://q1b6han3jqxd"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://q1b6han3jqxd"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_f8amc"]
-[ext_resource type="Texture2D" uid="uid://bccae64jqlrr2" path="res://assets/images/danyan_art/tuna_roll.png" id="1_htoig"]
+[ext_resource type="Texture2D" uid="uid://clh4b4c0rkvag" path="res://assets/images/danyan_art/tuna_roll.png" id="1_htoig"]
+[ext_resource type="AudioStream" uid="uid://d7mr5wpf6b1h" path="res://assets/sounds/AYCE_Game_Jam_soft_chew.mp3" id="1_n4dwc"]
 
 [resource]
 resource_local_to_scene = true
@@ -14,3 +15,4 @@ food_id = "TunaRoll"
 isWater = false
 image = ExtResource("1_htoig")
 deathChance = 0.0
+consumtionSound = ExtResource("1_n4dwc")

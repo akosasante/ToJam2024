@@ -17,6 +17,8 @@ class_name Food
 
 @export var deathChance : float = 0.0
 
+@export var consumtionSound : AudioStreamMP3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

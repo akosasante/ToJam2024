@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://c4cpnir4ufj2s"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://c4cpnir4ufj2s"]
 
+[ext_resource type="AudioStream" uid="uid://ggmbwto3gbk0" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="1_2vql2"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_24a47"]
-[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="1_wy5j5"]
+[ext_resource type="Texture2D" uid="uid://bfyu7v1bywsdb" path="res://assets/images/danyan_art/Water.png" id="1_wy5j5"]
 
 [resource]
 resource_local_to_scene = true
@@ -13,3 +14,5 @@ food_name = "Water"
 food_id = "Water"
 isWater = true
 image = ExtResource("1_wy5j5")
+deathChance = 0.0
+consumtionSound = ExtResource("1_2vql2")

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dc04bwmf1kheg"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://dc04bwmf1kheg"]
 
-[ext_resource type="Texture2D" uid="uid://ceywram4bb7eu" path="res://assets/images/danyan_art/veggie_roll.png" id="1_05eux"]
+[ext_resource type="AudioStream" uid="uid://d7mr5wpf6b1h" path="res://assets/sounds/AYCE_Game_Jam_soft_chew.mp3" id="1_2qxg8"]
+[ext_resource type="Texture2D" uid="uid://bjvxhv7pdtdm5" path="res://assets/images/danyan_art/veggie_roll.png" id="1_05eux"]
 [ext_resource type="Script" path="res://resources/food.gd" id="2_avgu3"]
 
 [resource]
@@ -14,3 +15,4 @@ food_id = "VeggieRoll"
 isWater = false
 image = ExtResource("1_05eux")
 deathChance = 0.0
+consumtionSound = ExtResource("1_2qxg8")

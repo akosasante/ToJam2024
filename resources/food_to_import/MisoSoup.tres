@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://guy0aqvhe53t"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://guy0aqvhe53t"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_3nw8h"]
-[ext_resource type="Texture2D" uid="uid://b5yu0m3v68efm" path="res://assets/images/danyan_art/miso_soup.png" id="1_roiey"]
+[ext_resource type="AudioStream" uid="uid://ggmbwto3gbk0" path="res://assets/sounds/AYCE_Game_Jam_Slurping_2.mp3" id="1_hvneq"]
+[ext_resource type="Texture2D" uid="uid://3m5x6dmwqhme" path="res://assets/images/danyan_art/miso_soup.png" id="1_roiey"]
 
 [resource]
 resource_local_to_scene = true
@@ -14,3 +15,4 @@ food_id = "MisoSoup"
 isWater = false
 image = ExtResource("1_roiey")
 deathChance = 0.0
+consumtionSound = ExtResource("1_hvneq")

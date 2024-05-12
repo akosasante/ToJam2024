@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dc1ck36m8bn7k"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://dc1ck36m8bn7k"]
 
-[ext_resource type="Texture2D" uid="uid://6n56ryjr3soa" path="res://assets/images/danyan_art/shrimp_tempura.png" id="1_7avcp"]
+[ext_resource type="Texture2D" uid="uid://ctfwcaun0msk1" path="res://assets/images/danyan_art/shrimp_tempura.png" id="1_7avcp"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_qaqag"]
+[ext_resource type="AudioStream" uid="uid://idufqf5mv12o" path="res://assets/sounds/AYCE_Game_Jam_Crunchy_Chew.mp3" id="1_vvu6q"]
 
 [resource]
 resource_local_to_scene = true
@@ -14,3 +15,4 @@ food_id = "ShrimpTempura"
 isWater = false
 image = ExtResource("1_7avcp")
 deathChance = 0.0
+consumtionSound = ExtResource("1_vvu6q")

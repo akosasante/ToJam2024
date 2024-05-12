@@ -116,6 +116,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 					indigest_cooldown_timer.start()
 					print("You got indigestion. Wait until it goes down before eating")
 		
+			food.play_sound_effect()
 			# side effects
 			player_consumed_something.emit(food.foodStats)
 			if (!isWater):
@@ -153,6 +154,7 @@ func _on_indigestion_cooldown_timer_timeout():
 		
 func _animate_inedible_food(foodButton: FoodButton):
 	if indigestion_sound_effect:
+		foodButton.stop_sound_effect()
 		sound_effect_player.stream = indigestion_sound_effect
 		sound_effect_player.volume_db = 10
 		sound_effect_player.play(0.38)

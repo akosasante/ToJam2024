@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cum045u36miqr"]
+[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://cum045u36miqr"]
 
-[ext_resource type="Texture2D" uid="uid://2abbcvmdjjf6" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="1_ja1c6"]
+[ext_resource type="AudioStream" uid="uid://d7mr5wpf6b1h" path="res://assets/sounds/AYCE_Game_Jam_soft_chew.mp3" id="1_in7jv"]
+[ext_resource type="Texture2D" uid="uid://50pvm7caq2l8" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="1_ja1c6"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_mf62e"]
 
 [resource]
@@ -14,3 +15,4 @@ food_id = "SalmonNigiri"
 isWater = false
 image = ExtResource("1_ja1c6")
 deathChance = 0.0
+consumtionSound = ExtResource("1_in7jv")
