@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://btvgx4v68ccds" path="res://assets/buttons/Cancel-Hover.svg" id="8_t2wdi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf7vo"]
-bg_color = Color(1, 0.941176, 0.819608, 1)
+bg_color = Color(0.95186, 0.808878, 0.587872, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
