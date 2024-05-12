@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbquo2m4xt1dl"]
+[gd_scene load_steps=6 format=3 uid="uid://cj7itcuqrboqm"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_t5j1e"]
 [ext_resource type="Script" path="res://scenes/unalive_screen.gd" id="1_x7lxd"]
-[ext_resource type="Texture2D" uid="uid://drkpirm4koxb7" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
-[ext_resource type="AudioStream" uid="uid://csbq5dof8oq2g" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
+[ext_resource type="Texture2D" uid="uid://g7y8g8jqrr8x" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
+[ext_resource type="AudioStream" uid="uid://bsh3j106fclxd" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="5_7j1gc"]
 
 [node name="UnaliveScreen" type="Node2D"]
@@ -36,6 +36,11 @@ layout_mode = 2
 size_flags_vertical = 2
 text = "PLAY AGAIN"
 
+[node name="Return To Main Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "RETURN TO MAIN MENU"
+
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
@@ -59,4 +64,5 @@ offset_bottom = 637.0
 scale = Vector2(0.682845, 0.682845)
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

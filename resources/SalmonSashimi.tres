@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cyn2op1ev5ual"]
 
-[ext_resource type="Texture2D" uid="uid://wqx630wlshuv" path="res://assets/images/salmonsashimi.jpeg" id="1_1duuq"]
+[ext_resource type="Texture2D" uid="uid://cikeby0sm2x5o" path="res://assets/images/salmonsashimi.jpeg" id="1_1duuq"]
 [ext_resource type="Script" path="res://resources/food.gd" id="2_qq3g3"]
 
 [resource]
