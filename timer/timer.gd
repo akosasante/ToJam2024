@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var initialTime = 120
 var currentTime = initialTime
@@ -7,6 +7,7 @@ var currentTime = initialTime
 @onready var timeBar: TextureProgressBar = $CenterContainer/TimeBar
 
 func _ready():
+	$Timer.start()
 	updateTimerDisplay()
 
 #Timer wait time is 1s
@@ -15,24 +16,16 @@ func _on_timer_timeout():
 		currentTime -= 1
 		updateTimerDisplay()
 	else:
-		timerDisplay.text = "Game Over"
+		# Warn: gotta keep this as load, rather than preload which would be a bit more perfomrant because it seems to be messing with Godot's caching
+		# https://github.com/godotengine/godot/issues/80981
+		var end_game_scene := load("res://scenes/end_screen.tscn")
+		SceneTransition.change_scene_with_dissolve(end_game_scene)
 	
 func updateTimerDisplay():
 	var minutes = currentTime / 60
 	var seconds = currentTime % 60
 	timerDisplay.text = "%01d:%02d" % [minutes, seconds]
 	timeBar.value = currentTime
-	
-func _on_play_button_pressed():
-	$Timer.start()
-
-func _on_pause_button_pressed():
-	$Timer.stop()
-	
-func _on_reset_button_pressed():
-	$Timer.stop()
-	currentTime = initialTime
-	updateTimerDisplay()
 
 func _on_time_bar_value_changed(value):
 	if value < 30:

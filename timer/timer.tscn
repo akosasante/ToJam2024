@@ -1,67 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqgkwblj0ge77"]
+[gd_scene load_steps=3 format=3 uid="uid://cqgkwblj0ge77"]
 
 [ext_resource type="Script" path="res://timer/timer.gd" id="1_pe7xu"]
-[ext_resource type="Texture2D" uid="uid://haenlqyw0wqf" path="res://assets/images/Circle.png" id="2_sq3y8"]
+[ext_resource type="Texture2D" uid="uid://byci7ve5bm4t3" path="res://assets/images/Circle.png" id="2_sq3y8"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dntxq"]
-size = Vector2(200, 100)
-
-[node name="Timer" type="Node2D"]
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_pe7xu")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="PlayButton" type="TextureButton" parent="."]
-offset_left = 109.0
-offset_top = 506.0
-offset_right = 309.0
-offset_bottom = 606.0
-texture_normal = SubResource("PlaceholderTexture2D_dntxq")
-
-[node name="Label" type="Label" parent="PlayButton"]
-layout_mode = 0
-offset_left = 81.0
-offset_top = 44.0
-offset_right = 114.0
-offset_bottom = 67.0
-text = "Play"
-
-[node name="PauseButton" type="TextureButton" parent="."]
-offset_left = 358.0
-offset_top = 506.0
-offset_right = 558.0
-offset_bottom = 606.0
-texture_normal = SubResource("PlaceholderTexture2D_dntxq")
-
-[node name="Label" type="Label" parent="PauseButton"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 44.0
-offset_right = 122.0
-offset_bottom = 67.0
-text = "Pause"
-
-[node name="Reset Button" type="TextureButton" parent="."]
-offset_left = 597.0
-offset_top = 506.0
-offset_right = 797.0
-offset_bottom = 606.0
-texture_normal = SubResource("PlaceholderTexture2D_dntxq")
-
-[node name="Label" type="Label" parent="Reset Button"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 44.0
-offset_right = 122.0
-offset_bottom = 67.0
-text = "Reset"
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = 925.0
-offset_top = 28.0
-offset_right = 1389.0
-offset_bottom = 492.0
-scale = Vector2(0.439042, 0.439042)
+layout_mode = 0
+offset_right = 464.0
+offset_bottom = 464.0
+scale = Vector2(0.814208, 0.814208)
 
 [node name="TimerDisplay" type="Label" parent="CenterContainer"]
 layout_mode = 2
@@ -78,7 +31,4 @@ tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0, 1, 0, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Reset Button" to="." method="_on_reset_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/TimeBar" to="." method="_on_time_bar_value_changed"]
