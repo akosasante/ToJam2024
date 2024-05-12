@@ -12,10 +12,19 @@ var medalImages: Dictionary = {
 								  "S": preload("res://assets/images/Stier.png"),
 							  }
 
+@export var winMusic: AudioStreamMP3
+@export var lossMusic: AudioStreamMP3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var score_dict: Dictionary = format_score_text()
+	
+	if score_dict["winner"]:
+		$AudioStreamPlayer.stream = winMusic
+	else:
+		$AudioStreamPlayer.stream = lossMusic
+	
+	$AudioStreamPlayer.play(0)
 	
 	var score_text := """You ate {num_dishes} dishes! Today's dinner charge was ${meal_charge}
 	
@@ -68,7 +77,8 @@ func format_score_text() -> Dictionary:
 		"total_value": total_value,
 		"score": score_and_comment[0],
 		"extra_comment": score_and_comment[1],
-		"meal_charge": meal_charge
+		"meal_charge": meal_charge,
+		"winner": score_and_comment[0] in ["S", "A", "B"]
 	}
 
 

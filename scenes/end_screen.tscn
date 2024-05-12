@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxa8hft10iw4e"]
+[gd_scene load_steps=13 format=3 uid="uid://bxa8hft10iw4e"]
 
 [ext_resource type="Script" path="res://scripts/EndScreen.gd" id="1_nqy1v"]
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_upl2t"]
+[ext_resource type="AudioStream" uid="uid://bjwh3ixyhx471" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
+[ext_resource type="AudioStream" uid="uid://cab2uq0e3tcnp" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_uxvtu"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_y3bfu"]
 [ext_resource type="Texture2D" uid="uid://yi8gqndijn7v" path="res://assets/images/Stier.png" id="4_ann5c"]
@@ -175,8 +177,13 @@ _data = {
 "medal_appear": SubResource("Animation_u47od")
 }
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_pwsi0"]
+loop = true
+
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_nqy1v")
+winMusic = ExtResource("2_wln6g")
+lossMusic = ExtResource("3_rquxj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(541, 153)
@@ -257,6 +264,10 @@ libraries = {
 "": SubResource("AnimationLibrary_hsti2")
 }
 speed_scale = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_pwsi0")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]
