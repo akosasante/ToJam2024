@@ -6,10 +6,11 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_f8amc")
-fullness = 6
-indigestion = 1
-food_value = 7
+fullness = 5
+indigestion = 5
+food_value = 5
 food_name = "Tuna Roll"
 food_id = "TunaRoll"
 isWater = false
 image = ExtResource("1_htoig")
+deathChance = 0.0

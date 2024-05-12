@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dc04bwmf1kheg"]
+
+[ext_resource type="Texture2D" uid="uid://ceywram4bb7eu" path="res://assets/images/danyan_art/veggie_roll.png" id="1_05eux"]
+[ext_resource type="Script" path="res://resources/food.gd" id="2_avgu3"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_avgu3")
+fullness = 5
+indigestion = 0
+food_value = 1
+food_name = "Veggie Roll"
+food_id = "VeggieRoll"
+isWater = false
+image = ExtResource("1_05eux")
+deathChance = 0.0

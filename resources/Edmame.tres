@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bhgmh1rt74841"]
+
+[ext_resource type="Texture2D" uid="uid://dsowc21qshkp6" path="res://assets/images/edamame.jpeg" id="1_g632l"]
+[ext_resource type="Script" path="res://resources/food.gd" id="2_g5yle"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_g5yle")
+fullness = 5
+indigestion = -2
+food_value = 5
+food_name = "Edamame"
+food_id = "Edamame"
+isWater = false
+image = ExtResource("1_g632l")
+deathChance = 0.0

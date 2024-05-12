@@ -72,7 +72,7 @@ func _on_kwasi_test_water_food_eaten(food):
 	eat_drink_food(food, true)
 
 
-func eat_drink_food(food, isWater):
+func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 	if (food):
 		canEat = (isWater && !isFull) || (!isFull && !hasIndigestion)
 		if (canEat):
@@ -80,7 +80,8 @@ func eat_drink_food(food, isWater):
 			var deathRng: float = rng.randf_range(0.0, 100.0)
 			if deathRng < food.deathChance:
 				SceneTransition.change_scene_with_dissolve(deathScene)
-			#handle fullness
+			
+		#handle fullness
 			currentFull += food.fullness
 			if (currentFull >= maxFull):
 				currentFull = maxFull
@@ -114,7 +115,9 @@ func eat_drink_food(food, isWater):
 			# side effects
 			player_consumed_something.emit(food)
 			if (!isWater):
-				# We were able to eat it, so update the amount on table and delete teh food
+				# We were able to eat it, so update the amount on table and delete the food
+				# also record that we successfully ate so we have it for the final scoring
+				MenuGlobals.foods_eaten.push_back(food.foodStats)
 				MenuGlobals.remove_food_from_table(food.food_id)
 				food.queue_free()
 		else:

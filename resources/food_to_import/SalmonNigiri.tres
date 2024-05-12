@@ -6,10 +6,11 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_mf62e")
-fullness = 12
-indigestion = 1
-food_value = 15
+fullness = 10
+indigestion = 5
+food_value = 10
 food_name = "Salmon Nigiri"
 food_id = "SalmonNigiri"
 isWater = false
 image = ExtResource("1_ja1c6")
+deathChance = 0.0

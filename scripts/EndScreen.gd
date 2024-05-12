@@ -20,12 +20,12 @@ func _ready():
 
 
 func format_score_text() -> Dictionary:
-	var foods_eaten: Array[Dictionary] = MenuGlobals.foods_eaten
-	var total_value = foods_eaten.reduce(func(accum, entry): return accum + entry.value, 0)
-	var score_and_comment = generate_score(total_value)
+	var foods_eaten: Array[Food] = MenuGlobals.foods_eaten
+	var total_value                      = foods_eaten.reduce(func(accum: int, entry: Food): return accum + entry.food_value, 0)
+	var score_and_comment: Array[String] = generate_score(total_value)
 	
 	return {
-		"num_dishes": foods_eaten.reduce(func(accum, entry): return accum + entry.amount_eaten, 0),
+		"num_dishes": foods_eaten.size(),
 		"total_value": total_value,
 		"score": score_and_comment[0],
 		"extra_comment": score_and_comment[1]
