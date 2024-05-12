@@ -76,8 +76,7 @@ func instantiateFoodMenuImage(gridContainer: GridContainer, food: Food):
 func spawnFoodButton(foodButton: FoodButton) -> bool:
 	for child in food_area.get_children():
 		if (child.name.contains("Plate")):
-			var plateChild: Node = child.get_child(0)
-			if (plateChild == null):
+			if (child.get_children().is_empty()):
 				child.add_child(foodButton)
 				return true;
 	return false
