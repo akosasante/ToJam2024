@@ -7,7 +7,8 @@
 offset_right = 79.0
 offset_bottom = 312.0
 scale = Vector2(8.25914, 1.563)
-value = 67.0
+min_value = -25.0
+value = 14.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_ato3v")
 texture_progress = ExtResource("2_tvovt")

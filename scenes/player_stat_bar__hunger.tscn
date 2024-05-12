@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cq0h3wki25ayb" path="res://assets/images/healthbarinside.png" id="2_rlu2t"]
 
 [node name="player_stat_bar" type="TextureProgressBar"]
-offset_right = 79.0
-offset_bottom = 312.0
-scale = Vector2(8.25914, 1.563)
-value = 80.0
+custom_minimum_size = Vector2(280, 0)
+offset_right = 280.0
+offset_bottom = 200.0
+min_value = -25.0
+value = 25.0
 nine_patch_stretch = true
 texture_under = ExtResource("1_kvdvr")
 texture_progress = ExtResource("2_rlu2t")

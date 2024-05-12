@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player := $"../Table/Player"
+@onready var indigestionCooldownTimer: Timer = $"../Table/Player/IndigestionCooldownTimer"
 @onready var hungerBar: TextureProgressBar = $hunger_bar
 @onready var indigestionBar: TextureProgressBar = $indigestion_bar
 
@@ -9,11 +10,11 @@ func _ready():
 	player.player_consumed_something.connect(_on_player_consumption)
 	hungerBar.value = 0
 	indigestionBar.value = 0
-	pass # Replace with function body.
 
 
-func _on_player_consumption(food):
-	print(food)
-	
+func _on_player_consumption(food: Food):
 	hungerBar.value += food.fullness
 	indigestionBar.value += food.indigestion
+	
+func _on_player_indigestion():
+	indigestionBar.value -= player.indigest_reduction_amount

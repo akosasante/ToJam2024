@@ -9,7 +9,7 @@ var currentIndigest: int = 0
 
 @onready var hasIndigestion: bool = false
 
-@export var indigest_reduction_amount: int = 5
+@export var indigest_reduction_amount: int = 10
 @export var indigest_cooldown_wait_time: int = 10
 
 @onready var indigest_cooldown_timer: Timer = $IndigestionCooldownTimer
@@ -113,7 +113,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 					print("You got indigestion. Wait until it goes down before eating")
 		
 			# side effects
-			player_consumed_something.emit(food)
+			player_consumed_something.emit(food.foodStats)
 			if (!isWater):
 				# We were able to eat it, so update the amount on table and delete the food
 				# also record that we successfully ate so we have it for the final scoring
