@@ -4,6 +4,12 @@ extends Node2D
 func _ready():
 	var score_text := """You ate {num_dishes} dishes!
 	
+	Value of finished dishes: ${reward_value}
+	
+	Uneaten dishes: {num_uneaten_dishes}
+	
+	Uneaten dishes pentalty: ${penalty_value}
+	
 	Value of dishes: ${total_value}
 	
 	Score: {score}
@@ -21,11 +27,27 @@ func _ready():
 
 func format_score_text() -> Dictionary:
 	var foods_eaten: Array[Food] = MenuGlobals.foods_eaten
-	var total_value                      = foods_eaten.reduce(func(accum: int, entry: Food): return accum + entry.food_value, 0)
+	var food_eaten_value = foods_eaten.reduce(func(accum: int, entry: Food): return accum + entry.food_value, 0)
+	
+	var foods_on_table : Array[Food]
+	
+	for food_Key in MenuGlobals.foods_on_table:
+		var amount = MenuGlobals.foods_on_table[food_Key]
+		for n in range(1, amount + 1):
+			var food: Food = MenuGlobals.food_items[food_Key] as Food
+			foods_on_table.push_back(food)
+			
+	var food_uneaten_value = foods_on_table.reduce(func(accum: int, entry: Food): return accum + entry.food_value, 0)
+	
+	var total_value = (food_eaten_value - food_uneaten_value)
+	
 	var score_and_comment: Array[String] = generate_score(total_value)
 	
 	return {
 		"num_dishes": foods_eaten.size(),
+		"reward_value":food_eaten_value,
+		"num_uneaten_dishes": foods_on_table.size(),
+		"penalty_value": food_uneaten_value,
 		"total_value": total_value,
 		"score": score_and_comment[0],
 		"extra_comment": score_and_comment[1]
