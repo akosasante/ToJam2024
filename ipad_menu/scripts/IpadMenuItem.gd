@@ -2,9 +2,19 @@ extends Control
 class_name IpadMenuItem
 
 @onready var menu_item_image := $VBoxContainer/menu_item_image
+
+@onready var menu_item_dish_name = $VBoxContainer/menu_item_dish_name
+
+@onready var menu_item_attributes = $VBoxContainer/menu_item_attributes
+@onready var menu_item_fullness = $VBoxContainer/menu_item_attributes/menu_item_fullness
+@onready var menu_item_value = $VBoxContainer/menu_item_attributes/menu_item_value
+@onready var menu_item_indigestion = $VBoxContainer/menu_item_attributes/menu_item_indigestion
+
 @onready var label :=  $VBoxContainer/menu_item_buttons/Label
 @onready var down_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_down
 @onready var up_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_up
+
+var menu_food : Food
 var food_name: String
 var food_id: String
 
@@ -31,7 +41,8 @@ func with_data(given_image: Texture2D, name: String) -> IpadMenuItem:
 func load_data(food: Food) -> IpadMenuItem:
 	if menu_item_image == null:
 		menu_item_image = $VBoxContainer/menu_item_image
-
+	
+	menu_food = food
 	menu_item_image.texture = food.image
 	food_name = food.food_name
 	food_id = food.food_id
@@ -43,6 +54,50 @@ func load_data(food: Food) -> IpadMenuItem:
 func _ready():
 	MenuGlobals.remaining_capacity_changed.connect(_on_remaining_capacity_changed)
 	update_button_states()
+	
+	if (food_name):
+		menu_item_dish_name.text = food_name
+		
+	if (menu_food):
+		menu_item_attributes.visible = true
+		
+		var filling = menu_food.fullness
+		if (filling == 0):
+			menu_item_fullness.visible = false
+		else:
+			menu_item_fullness.visible = true
+			if (filling < 10):
+				menu_item_fullness.texture = load("res://assets/images/full1.png")
+			elif (filling >= 10 && filling < 15):
+				menu_item_fullness.texture = load("res://assets/images/full2.png")
+			else:
+				menu_item_fullness.texture = load("res://assets/images/full3.png")
+		
+		var value = menu_food.food_value
+		if (value == 0):
+			menu_item_value.visible = false
+		else:
+			menu_item_value.visible = true
+			if (value < 10):
+				menu_item_value.texture = load("res://assets/images/value1.png")
+			elif (value >= 10 && value < 20):
+				menu_item_value.texture = load("res://assets/images/value2.png")
+			else:
+				menu_item_value.texture = load("res://assets/images/value3.png")
+		
+		var indigestion = menu_food.indigestion
+		if (indigestion == 0):
+			menu_item_indigestion.visible = false
+		else:
+			menu_item_indigestion.visible = true
+			if (indigestion < 10):
+				menu_item_indigestion.texture = load("res://assets/images/indigestion1.png")
+			elif (indigestion >= 10 && indigestion < 20):
+				menu_item_indigestion.texture = load("res://assets/images/indigestion2.png")
+			else:
+				menu_item_indigestion.texture = load("res://assets/images/indigestion3.png")
+	else:
+		menu_item_attributes.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

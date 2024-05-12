@@ -1,32 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://lj7dat5kwh4l"]
+[gd_scene load_steps=12 format=3 uid="uid://lj7dat5kwh4l"]
 
-[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_feawb"]
 [ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenuItem.gd" id="1_kpo1c"]
-[ext_resource type="Texture2D" uid="uid://2abbcvmdjjf6" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="2_dq5lt"]
-[ext_resource type="Texture2D" uid="uid://d3w8hu6r2eps5" path="res://akosua_test_images/arrow.png" id="2_lvcbl"]
-[ext_resource type="Texture2D" uid="uid://dphfdg1ub7x62" path="res://akosua_test_images/arrow pressed.png" id="3_euigx"]
-[ext_resource type="Texture2D" uid="uid://dejb6v67rr2r" path="res://akosua_test_images/arrow hover.png" id="4_pglcx"]
-[ext_resource type="Texture2D" uid="uid://dhe4k65d0rgpi" path="res://akosua_test_images/arrow disabled.png" id="5_afrw8"]
+[ext_resource type="Texture2D" uid="uid://50pvm7caq2l8" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="2_dq5lt"]
+[ext_resource type="Texture2D" uid="uid://bcfg5l74j011i" path="res://akosua_test_images/arrow.png" id="2_lvcbl"]
+[ext_resource type="Texture2D" uid="uid://6sfmpj0ukky4" path="res://assets/images/full1.png" id="3_143ol"]
+[ext_resource type="Texture2D" uid="uid://dboyq432c0ml6" path="res://akosua_test_images/arrow pressed.png" id="3_euigx"]
+[ext_resource type="Texture2D" uid="uid://bbht52d0ale4y" path="res://assets/images/value1.png" id="4_eh7uh"]
+[ext_resource type="Texture2D" uid="uid://y42vsgmigyty" path="res://akosua_test_images/arrow hover.png" id="4_pglcx"]
+[ext_resource type="Texture2D" uid="uid://csps37cjnky4m" path="res://assets/images/indigestion1.png" id="5_1fiud"]
+[ext_resource type="Texture2D" uid="uid://ckme0wrlyspcy" path="res://akosua_test_images/arrow disabled.png" id="5_afrw8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma5fm"]
 bg_color = Color(1, 0.888, 0.72, 0.294118)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hslq3"]
-font_size = 32
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [node name="ipad_menu_item_new" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -872.0
-offset_bottom = -448.0
+offset_bottom = -418.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_feawb")
 theme_override_styles/panel = SubResource("StyleBoxFlat_ma5fm")
 script = ExtResource("1_kpo1c")
 
@@ -36,22 +34,69 @@ theme_override_constants/separation = 5
 
 [node name="menu_item_image" type="TextureRect" parent="VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 4
 texture = ExtResource("2_dq5lt")
 expand_mode = 1
+
+[node name="menu_item_dish_name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dish Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menu_item_attributes" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="menu_item_fullness" type="TextureRect" parent="VBoxContainer/menu_item_attributes"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("3_143ol")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="menu_item_value" type="TextureRect" parent="VBoxContainer/menu_item_attributes"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_eh7uh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="menu_item_indigestion" type="TextureRect" parent="VBoxContainer/menu_item_attributes"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_1fiud")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="menu_item_buttons" type="Control" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="menu_item_button_up" type="TextureButton" parent="VBoxContainer/menu_item_buttons"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 90.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -63,31 +108,28 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer/menu_item_buttons"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -17.0
-offset_top = -17.5
-offset_right = 17.0
-offset_bottom = 17.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
 text = "0"
 label_settings = SubResource("LabelSettings_hslq3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="menu_item_button_down" type="TextureButton" parent="VBoxContainer/menu_item_buttons"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -90.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
