@@ -11,3 +11,4 @@ food_value = 0
 food_name = ""
 food_id = ""
 isWater = false
+deathChance = 0.0

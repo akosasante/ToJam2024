@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dc1ck36m8bn7k"]
 
-[ext_resource type="Texture2D" uid="uid://cfkrhp1gtuidh" path="res://assets/images/shrimptempura.jpg" id="1_olx3r"]
+[ext_resource type="Texture2D" uid="uid://6n56ryjr3soa" path="res://assets/images/danyan_art/shrimp_tempura.png" id="1_7avcp"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_qaqag"]
 
 [resource]
@@ -12,4 +12,4 @@ food_value = 6
 food_name = "Shrimp Tempura"
 food_id = "ShrimpTempura"
 isWater = false
-image = ExtResource("1_olx3r")
+image = ExtResource("1_7avcp")

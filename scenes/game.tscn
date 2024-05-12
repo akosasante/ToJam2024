@@ -9,22 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://dljlic1lq6tuy" path="res://scenes/player_stat_bar__indigestion.tscn" id="3_qjgus"]
 [ext_resource type="Script" path="res://scenes/PlayerHud.gd" id="4_sfjyo"]
 [ext_resource type="PackedScene" path="res://Food/Water.tscn" id="5_necd4"]
-[ext_resource type="Texture2D" uid="uid://g2d0sfee5v3x" path="res://assets/images/water-glass-cup.jpg" id="6_dry6i"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
-[ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://timer/timer.tscn" id="14_3scn0"]
+[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
 
-[sub_resource type="Resource" id="Resource_tff6q"]
+[sub_resource type="Resource" id="Resource_7wt0v"]
 resource_local_to_scene = true
 script = ExtResource("7_gipl5")
 fullness = 5
 indigestion = -5
 food_value = 0
 food_name = "Water"
-food_id = ""
+food_id = "Water"
 isWater = true
-image = ExtResource("6_dry6i")
+image = ExtResource("10_56g65")
 deathChance = 0.0
 
 [node name="Game" type="Node2D"]
@@ -99,7 +98,7 @@ offset_left = -357.0
 offset_top = -67.0
 offset_right = -177.0
 offset_bottom = 113.0
-foodStats = SubResource("Resource_tff6q")
+foodStats = SubResource("Resource_7wt0v")
 
 [node name="FoodContainer" type="GridContainer" parent="Table"]
 offset_left = -131.0

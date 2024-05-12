@@ -8,17 +8,7 @@ static var MAX_CAPACITY : int = 9
 
 var remaining_capacity: int = MAX_CAPACITY
 
-var food_items = {
-	"CaliforniaRoll": load("res://resources/CaliforniaRoll.tres") as Food,
-	"Edamame": load("res://resources/Edmame.tres") as Food,
-	"MisoSoup": load("res://resources/MisoSoup.tres") as Food,
-	"Pufferfish": load("res://resources/PufferFish.tres") as Food,
-	"SalmonNigiri": load("res://resources/SalmonNigiri.tres") as Food,
-	"SalmonSashimi": load("res://resources/SalmonSashimi.tres") as Food,
-	"ShrimpTempura": load("res://resources/ShrimpTempura.tres") as Food,
-	"SpicySalmonRoll": load("res://resources/SpicySalmonRoll.tres") as Food,
-	"TamagoSushi": load("res://resources/TamagoSushi.tres") as Food
-}
+var food_items: Dictionary = {}
 
 var foods_on_table = {}
 
@@ -72,7 +62,20 @@ func findAllFoods(node: Node, result : Array) -> void:
 	for child in node.get_children():
 		findAllFoods(child, result)
 		
+# load all the food that we want to use in the game
+# dynamically using the https://github.com/derkork/godot-resource-groups plugin
+# to load all food that is in the food_to_import resources folder
+func load_food_resources():
+	if food_items.is_empty():
+		var resource_group: ResourceGroup = load("res://resources/food_resource_group.tres") as ResourceGroup
+		var loaded_foods: Array[Food] = []
+		resource_group.load_all_into(loaded_foods)
 		
+		for loaded_food in loaded_foods:
+			if !loaded_food.isWater:
+				food_items[loaded_food.food_id] = loaded_food
+	
 func reset_all():
 	foods_on_table = {}
+	load_food_resources()
 	reset_remaining_capacity()

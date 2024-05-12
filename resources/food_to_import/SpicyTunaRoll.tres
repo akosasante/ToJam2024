@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bsyiuan3gt6do"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_avnjp"]
-[ext_resource type="Texture2D" uid="uid://c3lr23udedpvv" path="res://akosua_test_images/sushi1.png" id="1_sxy10"]
+[ext_resource type="Texture2D" uid="uid://day5a50vucsnw" path="res://assets/images/danyan_art/Spicy_tuna.png" id="1_sjdcb"]
 
 [resource]
 resource_local_to_scene = true
@@ -9,7 +9,7 @@ script = ExtResource("1_avnjp")
 fullness = 5
 indigestion = 10
 food_value = 12
-food_name = "Spicy Salmon Roll"
-food_id = "SpicySalmonRoll"
+food_name = "Spicy Tuna Roll"
+food_id = "SpicyTunaRoll"
 isWater = false
-image = ExtResource("1_sxy10")
+image = ExtResource("1_sjdcb")

@@ -15,6 +15,10 @@ func _ready():
 		food_name = 'Water'
 		isWater = true
 		food_id = "Water"
+		
+	if image:
+		ignore_texture_size = true
+		stretch_mode = STRETCH_KEEP_ASPECT_CENTERED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
