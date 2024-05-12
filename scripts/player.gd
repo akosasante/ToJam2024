@@ -81,13 +81,15 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 			if deathRng < food.deathChance:
 				SceneTransition.change_scene_with_dissolve(deathScene)
 			
-		#handle fullness
-			currentFull += food.fullness
+			#handle fullness -- with potential -20% to 20% buff on food fullness base stat 
+			var effectiveFullness : int = int(rng.randf_range(0.80, 1.20) * food.fullness)
+			currentFull += effectiveFullness
 			if (currentFull >= maxFull):
 				currentFull = maxFull
 			
-			# handle indigestion
-			currentIndigest += food.indigestion           
+			# handle indigestion -- with potential -20% to 20% buff on food indigestion base stat 
+			var effectiveIndigestion : int = int(rng.randf_range(0.80, 1.20) * food.indigestion)
+			currentIndigest += effectiveIndigestion       
 			if (currentIndigest >= maxIndigest):
 				currentIndigest = maxIndigest
 			
@@ -126,7 +128,7 @@ func eat_drink_food(food: FoodButton, isWater: bool) -> void:
 			print("Player can't eat right now")
 	else:
 		print("FoodButton Is Null")
-
+		
 
 func time_left_until_eat():
 	var time_left: float = indigest_cooldown_timer.time_left
