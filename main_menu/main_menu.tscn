@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://crd88oxteduu6"]
 
-[ext_resource type="Texture2D" uid="uid://badaoujpq1v1k" path="res://assets/images/sushi_front.jpg" id="1_cjrhd"]
-[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_fcv4a"]
+[ext_resource type="Theme" path="res://sniglet_font_theme.tres" id="1_fcv4a"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
-[ext_resource type="AudioStream" uid="uid://dya0rykuif3q5" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
+[ext_resource type="AudioStream" uid="uid://c5dcwidly34ua" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_py33q"]
+[ext_resource type="Texture2D" uid="uid://cj4joo6iv7q7o" path="res://assets/images/title_screen_test.png" id="3_y8ddp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lo34n"]
 
@@ -23,9 +23,9 @@ theme = ExtResource("1_fcv4a")
 script = ExtResource("1_udjb4")
 
 [node name="SushiFront" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.826992, 0.661224)
-texture = ExtResource("1_cjrhd")
+position = Vector2(575.5, 325)
+scale = Vector2(0.999132, 0.984802)
+texture = ExtResource("3_y8ddp")
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 process_thread_group = 2
@@ -128,6 +128,6 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Instructions/Panel/Button" to="." method="_on_button_pressed"]

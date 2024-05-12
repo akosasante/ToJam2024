@@ -180,4 +180,3 @@ func _handle_eat_food_success(foodButton: FoodButton):
 	tween.parallel().tween_property(foodButton, "modulate:a", 0, 0.4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(func(): foodButton.queue_free())
 	tween.play()
-	

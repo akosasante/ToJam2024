@@ -79,8 +79,12 @@ func _on_pressed():
 func play_sound_effect():
 	if (sound_effect && food_sound_effect_player):
 		food_sound_effect_player.stream = sound_effect
-		food_sound_effect_player.volume_db = 10
-		food_sound_effect_player.play(0.38)
+		if isWater:
+			food_sound_effect_player.volume_db = 20  
+			food_sound_effect_player.play(2)
+		else:
+			food_sound_effect_player.volume_db = 10
+			food_sound_effect_player.play(0.38)
 		
 func stop_sound_effect():
 	if (food_sound_effect_player && food_sound_effect_player.playing):
