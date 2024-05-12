@@ -6,10 +6,11 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_6stio")
-fullness = 10
-indigestion = 25
-food_value = 100
+fullness = 5
+indigestion = 5
+food_value = 30
 food_name = "Pufferfish"
 food_id = "Pufferfish"
 isWater = false
 image = ExtResource("1_mgut4")
+deathChance = 0.0

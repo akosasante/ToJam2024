@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://c5rywwvoe1vg3"]
+
+[ext_resource type="Texture2D" uid="uid://xvikq7g7qxra" path="res://assets/images/danyan_art/spicy_dragon_roll.png" id="1_1vu0c"]
+[ext_resource type="Script" path="res://resources/food.gd" id="1_3nw8h"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_3nw8h")
+fullness = 5
+indigestion = 20
+food_value = 20
+food_name = "Green Dragon Roll"
+food_id = "SpicyDragonRoll"
+isWater = false
+image = ExtResource("1_1vu0c")
+deathChance = 0.0

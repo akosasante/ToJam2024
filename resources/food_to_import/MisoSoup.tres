@@ -1,15 +1,16 @@
-[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://c5rywwvoe1vg3"]
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://guy0aqvhe53t"]
 
 [ext_resource type="Script" path="res://resources/food.gd" id="1_3nw8h"]
-[ext_resource type="Texture2D" uid="uid://cv4fd1vo7kxq8" path="res://assets/images/miso-soup.jpg" id="1_x112q"]
+[ext_resource type="Texture2D" uid="uid://wqx630wlshuv" path="res://assets/images/salmonsashimi.jpeg" id="1_4yj61"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_3nw8h")
-fullness = 8
+fullness = 20
 indigestion = -2
-food_value = 5
+food_value = 2
 food_name = "Miso Soup"
 food_id = "MisoSoup"
 isWater = false
-image = ExtResource("1_x112q")
+image = ExtResource("1_4yj61")
+deathChance = 0.0

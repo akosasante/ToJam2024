@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://ijxwx3c2dksl"]
 
-[ext_resource type="Texture2D" uid="uid://ceywram4bb7eu" path="res://assets/images/danyan_art/veggie_roll.png" id="1_cwr1h"]
 [ext_resource type="Script" path="res://resources/food.gd" id="1_cydf0"]
+[ext_resource type="Texture2D" uid="uid://dxchsem6rjctt" path="res://assets/images/danyan_art/california_roll_2.png" id="1_eq21c"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_cydf0")
-fullness = 8
-indigestion = 2
-food_value = 8
+fullness = 6
+indigestion = 6
+food_value = 2
 food_name = "California Roll"
 food_id = "CaliforniaRoll"
 isWater = false
-image = ExtResource("1_cwr1h")
+image = ExtResource("1_eq21c")
 deathChance = 0.0
