@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqgkwblj0ge77"]
 
-[ext_resource type="Script" path="res://timer/timer.gd" id="1_pe7xu"]
+[ext_resource type="Script" path="res://ui/timer/timer.gd" id="1_pe7xu"]
 [ext_resource type="Texture2D" uid="uid://byci7ve5bm4t3" path="res://assets/images/Circle.png" id="2_sq3y8"]
 
 [node name="Timer" type="Control"]

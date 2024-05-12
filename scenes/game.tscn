@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://l4voi5o858ka"]
+[gd_scene load_steps=17 format=3 uid="uid://l4voi5o858ka"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_g63e3"]
 [ext_resource type="Script" path="res://scripts/table.gd" id="2_1cckm"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" path="res://Food/Water.tscn" id="5_necd4"]
 [ext_resource type="PackedScene" uid="uid://bd4w4xcm32ws" path="res://ipad_menu/scenes/order_more_button.tscn" id="7_g2a0i"]
 [ext_resource type="Script" path="res://resources/food.gd" id="7_gipl5"]
-[ext_resource type="Texture2D" uid="uid://bxamj4f3l114" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
-[ext_resource type="AudioStream" uid="uid://bvawv7uvcelek" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="Texture2D" uid="uid://8t22vsqbyt0w" path="res://assets/images/danyan_art/Water.png" id="10_56g65"]
+[ext_resource type="AudioStream" uid="uid://bjkltk0ga2601" path="res://assets/audio/AYCE_Game_Jam_Table_Background_Music.mp3" id="10_oslyv"]
+[ext_resource type="PackedScene" uid="uid://cqgkwblj0ge77" path="res://ui/timer/timer.tscn" id="14_3scn0"]
+[ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="15_5jgun"]
 
 [sub_resource type="Resource" id="Resource_7wt0v"]
 resource_local_to_scene = true
@@ -119,9 +121,15 @@ scale = Vector2(0.85, 0.85)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="TableMusic" type="AudioStreamPlayer" parent="." groups=["Sound"]]
+[node name="TableMusic" type="AudioStreamPlayer" parent="." groups=["Sounds"]]
 stream = ExtResource("10_oslyv")
 volume_db = 5.0
 autoplay = true
+
+[node name="SoundButton" parent="." instance=ExtResource("15_5jgun")]
+offset_left = 432.0
+offset_top = 276.0
+offset_right = 569.0
+offset_bottom = 319.0
 
 [connection signal="food_ready" from="Table" to="Table/Player" method="_on_table_food_ready"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbquo2m4xt1dl"]
+[gd_scene load_steps=6 format=3 uid="uid://dbquo2m4xt1dl"]
 
 [ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_t5j1e"]
 [ext_resource type="Script" path="res://scenes/unalive_screen.gd" id="1_x7lxd"]
 [ext_resource type="Texture2D" uid="uid://drkpirm4koxb7" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
 [ext_resource type="AudioStream" uid="uid://csbq5dof8oq2g" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
+[ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="5_7j1gc"]
 
 [node name="UnaliveScreen" type="Node2D"]
 script = ExtResource("1_x7lxd")
@@ -45,10 +46,16 @@ position = Vector2(557, 498)
 scale = Vector2(0.254, 0.2995)
 texture = ExtResource("2_7kimo")
 
-[node name="UnaliveMusic" type="AudioStreamPlayer" parent="."]
+[node name="UnaliveMusic" type="AudioStreamPlayer" parent="." groups=["Sounds"]]
 stream = ExtResource("4_5s4b2")
 volume_db = 5.0
 autoplay = true
+
+[node name="SoundButton" parent="." instance=ExtResource("5_7j1gc")]
+offset_left = 987.0
+offset_top = 594.0
+offset_right = 1124.0
+offset_bottom = 637.0
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
