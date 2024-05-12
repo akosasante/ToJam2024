@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var leaving_sound_effect = $LeavingSoundEffect
+
 func _ready():
 	pass # Replace with function body.
 	
@@ -20,6 +22,10 @@ func _on_return_to_main_menu_pressed():
 	SceneTransition.change_scene_with_dissolve(main_menu_scene)
 	
 func _on_exit_pressed():
+	if (leaving_sound_effect):
+		leaving_sound_effect.play()
+		await get_tree().create_timer(2.0).timeout
+		
 	print_debug("QUITTING")
 	# TODO Maybe we play a sound here?
 	get_tree().quit()

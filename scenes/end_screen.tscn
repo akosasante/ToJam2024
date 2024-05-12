@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/EndScreen.gd" id="1_nqy1v"]
 [ext_resource type="AudioStream" uid="uid://bjwh3ixyhx471" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
 [ext_resource type="AudioStream" uid="uid://cab2uq0e3tcnp" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
+[ext_resource type="AudioStream" uid="uid://b5hrx136i75my" path="res://assets/sounds/AYCE_Game_Jam_Arigato_Gozaimasu.mp3" id="6_cotqk"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_uxvtu"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_y3bfu"]
 [ext_resource type="Texture2D" uid="uid://5hjkpxmpvaaq" path="res://assets/images/background_-_table_-_no_goat.png" id="4_2mj6r"]
@@ -184,8 +185,6 @@ loop = true
 
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_nqy1v")
-winMusic = ExtResource("2_wln6g")
-lossMusic = ExtResource("3_rquxj")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(558.721, 316.155)
@@ -273,6 +272,10 @@ speed_scale = 2.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_pwsi0")
 autoplay = true
+
+[node name="LeavingSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cotqk")
+volume_db = 8.0
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Return To Main Menu" to="." method="_on_return_to_main_menu_pressed"]

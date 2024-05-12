@@ -15,6 +15,8 @@ var medalImages: Dictionary = {
 @export var winMusic: AudioStreamMP3
 @export var lossMusic: AudioStreamMP3
 
+@onready var leaving_sound_effect = $LeavingSoundEffect
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var score_dict: Dictionary = format_score_text()
@@ -119,6 +121,10 @@ func _on_return_to_main_menu_pressed():
 	SceneTransition.change_scene_with_dissolve(main_menu_scene)
 
 func _on_exit_pressed():
+	if (leaving_sound_effect):
+		leaving_sound_effect.play()
+		await get_tree().create_timer(2.0).timeout
+		
 	print_debug("QUITTING")
 	# TODO Maybe we play a sound here?
 	get_tree().quit()
