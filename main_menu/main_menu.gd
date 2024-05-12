@@ -1,5 +1,7 @@
 extends Control
 
+var showIntructions: bool = false
+
 func _ready():
 	pass
 
@@ -10,3 +12,11 @@ func _on_start_button_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()
+
+func _on_instructions_button_pressed():
+	showIntructions = !showIntructions
+	$Instructions.visible = showIntructions
+
+func _on_button_pressed():
+	showIntructions = !showIntructions
+	$Instructions.visible = showIntructions

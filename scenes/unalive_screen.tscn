@@ -26,10 +26,10 @@ theme_override_font_sizes/font_size = 80
 text = "You ate bad Fugu, ☠️"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 510.0
+offset_left = 479.0
 offset_top = 263.0
-offset_right = 611.0
-offset_bottom = 329.0
+offset_right = 637.0
+offset_bottom = 335.0
 
 [node name="Play Again" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -46,16 +46,17 @@ position = Vector2(557, 498)
 scale = Vector2(0.254, 0.2995)
 texture = ExtResource("2_7kimo")
 
-[node name="UnaliveMusic" type="AudioStreamPlayer" parent="." groups=["Sounds"]]
+[node name="UnaliveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5s4b2")
 volume_db = 5.0
 autoplay = true
 
 [node name="SoundButton" parent="." instance=ExtResource("5_7j1gc")]
-offset_left = 987.0
+offset_left = 1038.0
 offset_top = 594.0
-offset_right = 1124.0
+offset_right = 1175.0
 offset_bottom = 637.0
+scale = Vector2(0.682845, 0.682845)
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

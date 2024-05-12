@@ -9,7 +9,7 @@ script = ExtResource("1_y7lnv")
 
 [node name="SoundButton" type="CheckButton" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 20
 text = "Sounds"
 alignment = 1
 

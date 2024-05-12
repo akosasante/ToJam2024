@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://crd88oxteduu6"]
+[gd_scene load_steps=7 format=3 uid="uid://crd88oxteduu6"]
 
 [ext_resource type="Texture2D" uid="uid://bex2dtj3qak74" path="res://assets/images/sushi_front.jpg" id="1_cjrhd"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udjb4"]
 [ext_resource type="AudioStream" uid="uid://yegn1xqunq2h" path="res://assets/audio/AYCE_Game_Jam_Main_Menu_Music.mp3" id="3_0ntsi"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_py33q"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lo34n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5gq23"]
+texture = SubResource("PlaceholderTexture2D_lo34n")
+modulate_color = Color(0, 0, 0, 0.933333)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,31 +21,11 @@ grow_vertical = 2
 script = ExtResource("1_udjb4")
 
 [node name="SushiFront" type="Sprite2D" parent="."]
-position = Vector2(576, 359)
-scale = Vector2(0.826992, 0.75)
+position = Vector2(576, 324)
+scale = Vector2(0.826992, 0.661224)
 texture = ExtResource("1_cjrhd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 471.0
-offset_top = 429.0
-offset_right = 715.0
-offset_bottom = 616.0
-
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "ENTER"
-
-[node name="SoundButton" parent="VBoxContainer" instance=ExtResource("3_py33q")]
-layout_mode = 2
-
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Quit"
-
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="." groups=["Sounds"]]
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 process_thread_group = 2
 process_thread_group_order = 0
 process_thread_messages = 0
@@ -47,6 +33,89 @@ stream = ExtResource("3_0ntsi")
 volume_db = 5.0
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="Menu" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 456.0
+offset_top = 373.0
+offset_right = 727.0
+offset_bottom = 560.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 0
+offset_right = 271.0
+offset_bottom = 198.0
+
+[node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "ENTER"
+
+[node name="InstructionsButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "How to Play"
+
+[node name="SoundButton" parent="Menu/VBoxContainer" instance=ExtResource("3_py33q")]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Instructions" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="Instructions"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5gq23")
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions/Panel"]
+layout_mode = 2
+offset_right = 952.0
+offset_bottom = 548.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Instructions/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center][b]Need for Sushi: Most Value[/b][/center]
+
+Welcome to the Need for Sushi: Most Value All you can Eat experience.
+
+Just like any good trip to an all you can eat restaurant your goal is to get as much value as possible.
+
+As you eat your stomach will get fuller and fuller once its full its time to call for the bill. Also keep an eye on your indigestion level, if you're indigestion is getting high you can always reduce it by drinking water. Like any good all you can eat restaurant we offer unlimited water to fill you up.
+
+Our chef recently learned how to make Fugu (Pufferfish) but be careful in case he didn't clean it properly, it could be slightly toxic.
+
+You can order up to 9 items at once using the menu, and then eat the food by clicking on it on the table. If you would like more food you can click the \"Order More\" button. If you're full click the \"Call for Bill\" button.
+
+Be careful not to order more than you can eat, you will be charged extra for uneaten food.
+"
+
+[node name="Button" type="Button" parent="Instructions/Panel"]
+layout_mode = 0
+offset_left = 924.0
+offset_top = 10.0
+offset_right = 942.0
+offset_bottom = 41.0
+text = "X"
+
+[connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Instructions/Panel/Button" to="." method="_on_button_pressed"]

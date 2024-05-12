@@ -61,10 +61,11 @@ size_flags_vertical = 10
 text = "QUIT GAME"
 
 [node name="SoundButton" parent="." instance=ExtResource("3_uxvtu")]
-offset_left = 997.0
-offset_top = 594.0
-offset_right = 1134.0
-offset_bottom = 637.0
+offset_left = 1029.0
+offset_top = 606.0
+offset_right = 1166.0
+offset_bottom = 649.0
+scale = Vector2(0.767831, 0.767831)
 
 [connection signal="pressed" from="VBoxContainer/Play Again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
