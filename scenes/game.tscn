@@ -170,9 +170,9 @@ volume_db = 5.0
 autoplay = true
 
 [node name="SoundButton" parent="." instance=ExtResource("15_5jgun")]
-offset_left = 432.0
-offset_top = 276.0
-offset_right = 569.0
-offset_bottom = 319.0
+offset_left = 711.0
+offset_top = 434.0
+offset_right = 882.0
+offset_bottom = 497.0
 
 [connection signal="food_ready" from="Table" to="Table/Player" method="_on_table_food_ready"]
