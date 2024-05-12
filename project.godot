@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Need for Sushi : Most Value"
+config/version="0.1"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+config/windows_native_icon="res://assets/images/goat.ico"
 
 [autoload]
 
