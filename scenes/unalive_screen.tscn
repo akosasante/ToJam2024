@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbquo2m4xt1dl"]
 
-[ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_t5j1e"]
 [ext_resource type="Script" path="res://scenes/unalive_screen.gd" id="1_x7lxd"]
-[ext_resource type="Texture2D" uid="uid://drkpirm4koxb7" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
+[ext_resource type="Texture2D" uid="uid://ciy0hejmcosdj" path="res://assets/images/Goat_sad.png" id="2_7kimo"]
+[ext_resource type="Texture2D" uid="uid://5hjkpxmpvaaq" path="res://assets/images/background_-_table_-_no_goat.png" id="2_7s471"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_7tv6e"]
 [ext_resource type="AudioStream" uid="uid://csbq5dof8oq2g" path="res://assets/audio/AYCE_Game_Jam_Death_Music.mp3" id="4_5s4b2"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="5_7j1gc"]
@@ -10,11 +10,18 @@
 [node name="UnaliveScreen" type="Node2D"]
 script = ExtResource("1_x7lxd")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(1282, -218)
+color = Color(1, 1, 0.890196, 0.568627)
+energy = 0.43
+height = 0.5
+max_distance = 1000.0
+
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.396889, 0.396889, 0.396889, 1)
-position = Vector2(541, 153)
-scale = Vector2(0.836806, 0.836806)
-texture = ExtResource("1_t5j1e")
+modulate = Color(0.0807833, 0.0807834, 0.0807833, 1)
+position = Vector2(573, 189)
+scale = Vector2(1.40271, 1.40271)
+texture = ExtResource("2_7s471")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 1153.0
@@ -50,6 +57,7 @@ size_flags_vertical = 6
 text = "QUIT GAME"
 
 [node name="SadGoat" type="Sprite2D" parent="."]
+light_mask = 0
 position = Vector2(557, 498)
 scale = Vector2(0.254, 0.2995)
 texture = ExtResource("2_7kimo")
