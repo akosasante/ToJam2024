@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://co1nue1ypltyj"]
+[gd_scene load_steps=3 format=3 uid="uid://co1nue1ypltyj"]
 
+[ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="1_u4gt8"]
 [ext_resource type="Script" path="res://scripts/CallForBill.gd" id="1_vkcki"]
 
 [node name="call_for_bill" type="Button"]
@@ -8,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_u4gt8")
 theme_override_colors/font_color = Color(0.737255, 0, 0.878431, 1)
 theme_override_font_sizes/font_size = 72
 text = "CALL FOR BILL"
