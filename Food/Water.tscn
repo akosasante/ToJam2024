@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/foodbutton.gd" id="1_jo88p"]
 [ext_resource type="Texture2D" uid="uid://n4jcmyqj25pk" path="res://assets/images/water-glass-cup.jpg" id="2_yqai7"]
-[ext_resource type="Resource" uid="uid://c4cpnir4ufj2s" path="res://resources/Water.tres" id="4_8c8bw"]
+[ext_resource type="Resource" uid="uid://c4cpnir4ufj2s" path="res://resources/food_to_import/Water.tres" id="4_8c8bw"]
 
 [node name="Water" type="TextureButton"]
 texture_normal = ExtResource("2_yqai7")

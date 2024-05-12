@@ -72,6 +72,8 @@ func instantiateFoodMenuImage(gridContainer: GridContainer, food: Food):
 		gridContainer.add_child(foodButton)
 	else :
 		spawnFoodButton(foodButton)
+		
+	foodButton.scale = Vector2(2, 2)
 	
 func spawnFoodButton(foodButton: FoodButton) -> bool:
 	for child in food_area.get_children():

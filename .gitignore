@@ -27,3 +27,4 @@ mono_crash.*.json
 *.DS_Store
 
 scenes/game2.tscn
+Food/CaliforniaRoll.tscn
