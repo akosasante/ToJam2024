@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://lj7dat5kwh4l"]
+[gd_scene load_steps=14 format=3 uid="uid://lj7dat5kwh4l"]
 
 [ext_resource type="Script" path="res://ipad_menu/scripts/IpadMenuItem.gd" id="1_kpo1c"]
+[ext_resource type="FontFile" uid="uid://bbusagjux8p57" path="res://assets/fonts/Sniglet-ExtraBold.ttf" id="2_4qtw5"]
 [ext_resource type="Texture2D" uid="uid://50pvm7caq2l8" path="res://assets/images/danyan_art/salmon_nigiri_2.png" id="2_dq5lt"]
 [ext_resource type="Texture2D" uid="uid://bcfg5l74j011i" path="res://akosua_test_images/arrow.png" id="2_lvcbl"]
 [ext_resource type="Texture2D" uid="uid://6sfmpj0ukky4" path="res://assets/images/full1.png" id="3_143ol"]
@@ -12,6 +13,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma5fm"]
 bg_color = Color(1, 0.888, 0.72, 0.294118)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pypj1"]
+font = ExtResource("2_4qtw5")
+font_size = 20
+shadow_color = Color(0, 0, 0, 0.901961)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hslq3"]
 
@@ -32,6 +38,13 @@ script = ExtResource("1_kpo1c")
 layout_mode = 2
 theme_override_constants/separation = 5
 
+[node name="menu_item_dish_name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dish Name"
+label_settings = SubResource("LabelSettings_pypj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="menu_item_image" type="TextureRect" parent="VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(50, 50)
@@ -40,12 +53,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_dq5lt")
 expand_mode = 1
-
-[node name="menu_item_dish_name" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Dish Name"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="menu_item_attributes" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
