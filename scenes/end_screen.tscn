@@ -1,14 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxa8hft10iw4e"]
+[gd_scene load_steps=16 format=3 uid="uid://bxa8hft10iw4e"]
 
 [ext_resource type="Script" path="res://scripts/EndScreen.gd" id="1_nqy1v"]
-[ext_resource type="Texture2D" uid="uid://bh1kr1acf7mjl" path="res://assets/images/night.PNG" id="1_upl2t"]
-[ext_resource type="AudioStream" uid="uid://djna3yrulxgus" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
-[ext_resource type="AudioStream" uid="uid://b3b0e8652tanb" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
+[ext_resource type="AudioStream" uid="uid://bjwh3ixyhx471" path="res://assets/audio/AYCE_Game_jam_Win_Music.mp3" id="2_wln6g"]
+[ext_resource type="AudioStream" uid="uid://cab2uq0e3tcnp" path="res://assets/audio/AYCE_Game_Jam_Loss_Music.mp3" id="3_rquxj"]
 [ext_resource type="PackedScene" uid="uid://cr6evotfc1nq7" path="res://ui/muteButton/sound_button.tscn" id="3_uxvtu"]
 [ext_resource type="Theme" uid="uid://urevfyucioxh" path="res://sniglet_font_theme.tres" id="3_y3bfu"]
-[ext_resource type="Texture2D" uid="uid://l3vid076uvom" path="res://assets/images/Stier.png" id="4_ann5c"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_smqaw"]
+[ext_resource type="Texture2D" uid="uid://5hjkpxmpvaaq" path="res://assets/images/background_-_table_-_no_goat.png" id="4_2mj6r"]
+[ext_resource type="Texture2D" uid="uid://yi8gqndijn7v" path="res://assets/images/Stier.png" id="4_ann5c"]
+[ext_resource type="Texture2D" uid="uid://bqyk1gsmeamrs" path="res://assets/images/danyan_art/goat_waiter_2_-_happy.png" id="5_3ce5w"]
+[ext_resource type="Texture2D" path="res://assets/images/mc_cat_default.png" id="6_5w353"]
+[ext_resource type="Texture2D" uid="uid://cku3wimhh4vum" path="res://assets/images/RECEIPT with title.png" id="7_be5gg"]
+[ext_resource type="FontFile" uid="uid://ipgggaljlxwo" path="res://assets/fonts/NotoSansMono-VariableFont_wdth,wght.ttf" id="9_3y4tp"]
 
 [sub_resource type="Animation" id="Animation_2s211"]
 length = 0.001
@@ -185,35 +187,35 @@ script = ExtResource("1_nqy1v")
 winMusic = ExtResource("2_wln6g")
 lossMusic = ExtResource("3_rquxj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(541, 153)
-scale = Vector2(0.836806, 0.836806)
-texture = ExtResource("1_upl2t")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(558.721, 316.155)
+scale = Vector2(1.03694, 1.03694)
+texture = ExtResource("4_2mj6r")
 metadata/_edit_lock_ = true
 
-[node name="BillPlaceholder" type="Sprite2D" parent="."]
-position = Vector2(698, 300)
-scale = Vector2(401.05, 526.694)
-texture = SubResource("CanvasTexture_smqaw")
+[node name="GoatWaiter" type="Sprite2D" parent="."]
+position = Vector2(1046, 533)
+scale = Vector2(0.23925, 0.23925)
+texture = ExtResource("5_3ce5w")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 602.0
-offset_top = 47.0
-offset_right = 773.0
-offset_bottom = 92.0
-theme = ExtResource("3_y3bfu")
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[wave]YOUR BILL[/wave]"
+[node name="MC_Cat" type="Sprite2D" parent="."]
+position = Vector2(115, 537)
+scale = Vector2(0.2265, 0.2265)
+texture = ExtResource("6_5w353")
+
+[node name="Bill" type="Sprite2D" parent="."]
+position = Vector2(609.5, 328.767)
+scale = Vector2(1.14192, 0.948352)
+texture = ExtResource("7_be5gg")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 510.0
-offset_top = 102.0
-offset_right = 885.0
-offset_bottom = 289.0
+offset_left = 375.0
+offset_top = 112.0
+offset_right = 759.0
+offset_bottom = 412.0
 theme = ExtResource("3_y3bfu")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_3y4tp")
 text = "You ate n dishes!
 
 Value of dishes: $$$
@@ -221,12 +223,15 @@ Value of dishes: $$$
 Score: A+
 
 Wow! You really must have been starving!"
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 578.0
-offset_top = 434.0
-offset_right = 786.0
-offset_bottom = 549.0
+offset_left = 515.0
+offset_top = 512.0
+offset_right = 723.0
+offset_bottom = 627.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Play Again" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -247,15 +252,15 @@ theme = ExtResource("3_y3bfu")
 text = "QUIT GAME"
 
 [node name="SoundButton" parent="." instance=ExtResource("3_uxvtu")]
-offset_left = 1029.0
-offset_top = 606.0
-offset_right = 1166.0
-offset_bottom = 649.0
+offset_left = 1040.0
+offset_top = 12.0
+offset_right = 1177.0
+offset_bottom = 55.0
 scale = Vector2(0.767831, 0.767831)
 
 [node name="Medal" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(883, 448)
+position = Vector2(819, 490)
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("4_ann5c")
 

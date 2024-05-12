@@ -32,7 +32,7 @@ func _ready():
 	
 	Uneaten dishes: {num_uneaten_dishes}
 	
-	Uneaten dishes pentalty: ${penalty_value}
+	Uneaten dishes penalty: ${penalty_value}
 	
 	Value of dishes: ${total_value}
 	
