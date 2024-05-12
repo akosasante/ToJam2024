@@ -1,16 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://08pwe18k1yyo"]
+[gd_scene load_steps=2 format=3 uid="uid://08pwe18k1yyo"]
 
-[ext_resource type="Texture2D" uid="uid://3m0ajk5ddjrx" path="res://assets/images/healthbarempty.png" id="1_kvdvr"]
-[ext_resource type="Texture2D" uid="uid://cq0h3wki25ayb" path="res://assets/images/healthbarinside.png" id="2_rlu2t"]
+[ext_resource type="Texture2D" uid="uid://bghjruh3sww0t" path="res://assets/images/ProgressBar.png" id="1_34ji1"]
 
 [node name="player_stat_bar" type="TextureProgressBar"]
 custom_minimum_size = Vector2(280, 0)
-offset_right = 280.0
+offset_right = 946.0
 offset_bottom = 200.0
-min_value = -25.0
 value = 25.0
 nine_patch_stretch = true
-texture_under = ExtResource("1_kvdvr")
-texture_progress = ExtResource("2_rlu2t")
-tint_under = Color(0.801263, 4.23551e-06, 2.88785e-07, 1)
-tint_progress = Color(1, 0.117326, 0.367221, 1)
+texture_under = ExtResource("1_34ji1")
+texture_progress = ExtResource("1_34ji1")
+tint_under = Color(1, 0.941176, 0.819608, 1)
+tint_progress = Color(0, 1, 0, 1)

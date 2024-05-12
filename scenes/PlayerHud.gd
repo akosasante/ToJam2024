@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var player := $"../Table/Player"
 @onready var indigestionCooldownTimer: Timer = $"../Table/Player/IndigestionCooldownTimer"
-@onready var hungerBar: TextureProgressBar = $hunger_bar
-@onready var indigestionBar: TextureProgressBar = $indigestion_bar
+@onready var hungerBar: TextureProgressBar = $hunger/hunger_bar
+@onready var indigestionBar: TextureProgressBar = $indigestion/indigestion_bar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
