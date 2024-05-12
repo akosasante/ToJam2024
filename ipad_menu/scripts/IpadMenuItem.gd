@@ -1,7 +1,7 @@
 extends Control
 class_name IpadMenuItem
 
-@onready var menu_item_image := $VBoxContainer/Control/menu_item_image
+@onready var menu_item_image := $VBoxContainer/menu_item_image
 @onready var label :=  $VBoxContainer/menu_item_buttons/Label
 @onready var down_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_down
 @onready var up_arrow := $VBoxContainer/menu_item_buttons/menu_item_button_up
@@ -19,7 +19,7 @@ signal decrement_food_item
 # TODO: Replace this with a FoodButton class/Resource
 func with_data(given_image: Texture2D, name: String) -> IpadMenuItem:
 	if menu_item_image == null:
-		menu_item_image = $VBoxContainer/Control/menu_item_image
+		menu_item_image = $VBoxContainer/menu_item_image
 
 	menu_item_image.texture = given_image
 	food_name = name
@@ -30,7 +30,7 @@ func with_data(given_image: Texture2D, name: String) -> IpadMenuItem:
 
 func load_data(food: Food) -> IpadMenuItem:
 	if menu_item_image == null:
-		menu_item_image = $VBoxContainer/Control/menu_item_image
+		menu_item_image = $VBoxContainer/menu_item_image
 
 	menu_item_image.texture = food.image
 	food_name = food.food_name

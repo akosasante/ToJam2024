@@ -9,6 +9,7 @@ var foods_in_menu: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MenuGlobals.load_food_resources()
 	MenuGlobals.reset_remaining_capacity()
 	
 	var gridContainer: GridContainer = $Panel/MarginContainer/GridContainer
@@ -18,18 +19,8 @@ func _ready():
 	intializeNumberGridColumns(gridContainer, numDishesPerRow)
 
 	for food_key in MenuGlobals.food_items:
-		var food_stats = MenuGlobals.food_items[food_key] as Food
+		var food_stats: Food = MenuGlobals.food_items[food_key] as Food
 		instantiateFoodMenuImage(gridContainer, food_stats)
-		
-	# populate the menu with my test sushi images
-	#for n in range(1, numAvailableDishes + 1):
-		#var path: String = "res://akosua_test_images/sushi%s.png" % n
-		#print_debug("path: ", path)
-#
-		#MenuGlobals.foods_image_dict["SUSHI #%s" % n] = path
-#
-		#var image: Texture2D = load(path)
-		#instantiateDishMenuImage(gridContainer, image, "SUSHI #%s" % n)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
